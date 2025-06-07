@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>chaos - موقع فلسفي</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a1a;
+    color: #eee;
+    margin: 0; padding: 0;
+    display: flex; flex-direction: column; min-height: 100vh;
+  }
+  header {
+    background: #333;
+    padding: 1em;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    user-select: none;
+  }
+  main {
+    flex: 1;
+    padding: 1em 2em;
+    max-width: 900px;
+    margin: auto;
+  }
+  section {
+    margin-bottom: 2em;
+  }
+  h2 {
+    border-bottom: 2px solid #555;
+    padding-bottom: 0.3em;
+  }
+  a {
+    color: #7ed6df;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  ul {
+    list-style: none;
+    padding-right: 0;
+  }
+  li {
+    margin-bottom: 0.5em;
+  }
+  blockquote {
+    border-right: 4px solid #7ed6df;
+    padding-right: 1em;
+    color: #a0d8ef;
+    font-style: italic;
+    margin: 0.5em 0 1em 0;
+  }
+  #donate {
+    background: #7ed6df;
+    color: #111;
+    border: none;
+    padding: 1em 2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  footer {
+    background: #222;
+    color: #777;
+    text-align: center;
+    padding: 1em;
+    font-size: 0.9em;
+  }
+  /* Chat embed container */
+  #chat-container {
+    margin-top: 2em;
+    border: 1px solid #444;
+    height: 300px;
+  }
+</style>
+</head>
+<body>
+<header>chaos</header>
+<main>
+
+  <section id="links">
+    <h2>روابط لمواقع فلسفية عالمية</h2>
+    <ul>
+      <li><a href="https://plato.stanford.edu/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy</a></li>
+      <li><a href="https://iep.utm.edu/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy</a></li>
+      <li><a href="https://philosophynow.org/" target="_blank" rel="noopener">Philosophy Now</a></li>
+      <li><a href="https://www.philosophybasics.com/" target="_blank" rel="noopener">Philosophy Basics</a></li>
+    </ul>
+  </section>
+
+  <section id="quotes">
+    <h2>مقتطفات فلسفية</h2>
+    <blockquote>“الشيء الوحيد الذي أعرفه هو أنني لا أعرف شيئًا.” – سقراط</blockquote>
+    <blockquote>“الوجود يسبق الماهية.” – جان بول سارتر</blockquote>
+    <blockquote>“أريد أن أحلم، لا أن أموت.” – أنارخيديس (اقتباس خاص بك)</blockquote>
+  </section>
+
+  <section id="books">
+    <h2>كتب فلسفية للتحميل</h2>
+    <ul>
+      <li><a href="https://www.gutenberg.org/ebooks/author/65" target="_blank" rel="noopener">كتب أفلاطون - Project Gutenberg</a></li>
+      <li><a href="https://archive.org/details/works-of-friedrich-nietzsche" target="_blank" rel="noopener">كتب فريدريك نيتشه - Archive.org</a></li>
+      <li><a href="https://www.ebooksgratuits.com/ebooks.php" target="_blank" rel="noopener">مكتبة كتب فلسفية مجانية</a></li>
+    </ul>
+  </section>
+
+  <section id="support">
+    <h2>دعم الموقع</h2>
+    <p>إذا أعجبك الموقع ووجدته مفيدًا، يمكنك دعمي عبر:</p>
+    <button id="donate" onclick="window.open('https://www.paypal.me/YourPayPalHere', '_blank')">تبرع عبر PayPal</button>
+  </section>
+
+  <section id="chat">
+    <h2>الشات الفلسفي</h2>
+    <!-- سأستخدم هنا مثال لدمج خدمة Tawk.to مجانية للدردشة -->
+    <div id="chat-container"></div>
+  </section>
+
+</main>
+<footer>
+  &copy; 2025 chaos - جميع الحقوق محفوظة
+</footer>
+
+<script>
+  // دمج خدمة Tawk.to للشات (مجانية، يمكن التسجيل وإضافة الكود الخاص بك)
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/YOUR_TAWKTO_PROPERTY_ID/1abcdefg'; // ضع هنا معرف حساب Tawk.to الخاص بك
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+  })();
+</script>
+
+</body>
+</html>
