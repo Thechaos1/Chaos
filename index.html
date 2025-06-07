@@ -3,230 +3,68 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>chaos - عالم الفلسفة</title>
-<style>
-  /* خطوط Google Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Merriweather:ital,wght@0,400;1,700&display=swap');
-
-  /* ألوان الموقع */
-  :root {
-    --color-bg: #121212;
-    --color-primary: #80d0c7;
-    --color-secondary: #3a3a3a;
-    --color-accent: #ff5e62;
-    --color-text: #e0e0e0;
-    --color-muted: #999999;
-  }
-
-  /* إعادة ضبط الأساس */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--color-bg);
-    color: var(--color-text);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  header {
-    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
-    padding: 1.5rem 2rem;
-    text-align: center;
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-    font-size: 2.6rem;
-    letter-spacing: 0.15em;
-    color: #fff;
-    text-transform: uppercase;
-    user-select: none;
-    box-shadow: 0 3px 10px rgba(255, 94, 98, 0.5);
-  }
-
-  main {
-    flex: 1;
-    max-width: 960px;
-    margin: 2rem auto 3rem auto;
-    padding: 0 1rem;
-  }
-
-  section {
-    background: var(--color-secondary);
-    border-radius: 12px;
-    padding: 1.8rem 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-    transition: transform 0.3s ease;
-  }
-  section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(255,94,98,0.7);
-  }
-
-  h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.9rem;
-    margin-bottom: 1rem;
-    color: var(--color-accent);
-    border-right: 5px solid var(--color-accent);
-    padding-right: 0.8rem;
-    user-select: none;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  li {
-    margin-bottom: 0.9rem;
-  }
-
-  a {
-    color: var(--color-primary);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
-
-  blockquote {
-    font-style: italic;
-    color: var(--color-primary);
-    border-right: 6px solid var(--color-accent);
-    padding-right: 1rem;
-    margin: 1rem 0 1.5rem 0;
-    font-size: 1.15rem;
-    user-select: text;
-  }
-
-  #donate {
-    background: var(--color-accent);
-    border: none;
-    padding: 0.9rem 2.5rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border-radius: 30px;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    display: inline-block;
-    margin-top: 1rem;
-    user-select: none;
-  }
-  #donate:hover {
-    background: #ff3b40;
-  }
-
-  footer {
-    background: var(--color-secondary);
-    padding: 1.2rem 1rem;
-    text-align: center;
-    color: var(--color-muted);
-    font-size: 0.95rem;
-    user-select: none;
-  }
-
-  /* Chat container - full width & height */
-  #chat-container {
-    height: 320px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(255,94,98,0.6);
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    header {
-      font-size: 1.8rem;
-      padding: 1rem;
-      letter-spacing: 0.1em;
-    }
-    main {
-      margin: 1rem;
-      padding: 0 0.5rem;
-    }
-    section {
-      padding: 1.2rem 1rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-    }
-    blockquote {
-      font-size: 1rem;
-    }
-    #donate {
-      width: 100%;
-      font-size: 1rem;
-      padding: 0.8rem 1rem;
-    }
-  }
-</style>
+<title>chaos - الصفحة الرئيسية</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header>chaos</header>
 
-<main>
-  <section id="links">
-    <h2>روابط فلسفية عالمية</h2>
+<div class="container">
+  <nav class="sidebar">
+    <h3>القائمة</h3>
     <ul>
-      <li><a href="https://plato.stanford.edu/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy</a></li>
-      <li><a href="https://iep.utm.edu/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy</a></li>
-      <li><a href="https://philosophynow.org/" target="_blank" rel="noopener">Philosophy Now</a></li>
-      <li><a href="https://www.philosophybasics.com/" target="_blank" rel="noopener">Philosophy Basics</a></li>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li>
+        <button class="expand-btn">الفلاسفة
+          <span>▸</span>
+        </button>
+        <ul class="submenu">
+          <li><a href="nietzsche.html">فريدريك نيتشه</a></li>
+          <li><a href="socrates.html">سقراط</a></li>
+          <li><a href="plato.html">أفلاطون</a></li>
+        </ul>
+      </li>
+      <li><a href="books.html">الكتب</a></li>
+      <li><a href="support.html">دعم الموقع</a></li>
+      <li><a href="chat.html">الشات الفلسفي</a></li>
     </ul>
-  </section>
+  </nav>
 
-  <section id="quotes">
-    <h2>مقتطفات فلسفية</h2>
-    <blockquote>“الشيء الوحيد الذي أعرفه هو أنني لا أعرف شيئًا.” – سقراط</blockquote>
-    <blockquote>“الوجود يسبق الماهية.” – جان بول سارتر</blockquote>
-    <blockquote>“أريد أن أحلم، لا أن أموت.” – أنارخيديس (اقتباس خاص بك)</blockquote>
-  </section>
+  <main class="content">
+    <h2>مرحبًا بك في chaos</h2>
+    <p>هذا الموقع هو مساحة تجمع بين عالم الفلسفة وروح الإبداع، حيث تجد روابط لمواقع فلسفية عالمية، مقتطفات فلسفية ملهمة، تحميل كتب، ومكان للنقاش الفلسفي الحر.</p>
 
-  <section id="books">
-    <h2>كتب فلسفية للتحميل</h2>
-    <ul>
-      <li><a href="https://www.gutenberg.org/ebooks/author/65" target="_blank" rel="noopener">كتب أفلاطون - Project Gutenberg</a></li>
-      <li><a href="https://archive.org/details/works-of-friedrich-nietzsche" target="_blank" rel="noopener">كتب فريدريك نيتشه - Archive.org</a></li>
-      <li><a href="https://www.ebooksgratuits.com/ebooks.php" target="_blank" rel="noopener">مكتبة كتب فلسفية مجانية</a></li>
-    </ul>
-  </section>
+    <p>أنا أنارخيديس، صانع هذا الفضاء، أؤمن بأن الفلسفة هي مفتاح لفهم الذات والوجود، وهذا الموقع هدية لكل باحث عن الحقيقة والمعنى.</p>
 
-  <section id="support">
-    <h2>دعم الموقع</h2>
-    <p>إذا أعجبك الموقع ووجدته مفيدًا، يمكنك دعمي عبر:</p>
-    <button id="donate" onclick="window.open('https://www.paypal.me/YourPayPalHere', '_blank')">تبرع عبر PayPal</button>
-  </section>
-
-  <section id="chat">
-    <h2>الشات الفلسفي</h2>
-    <div id="chat-container"></div>
-  </section>
-</main>
+    <section id="quotes-home">
+      <h2>مقتطفات فلسفية متنوعة</h2>
+      <blockquote>“الشيء الوحيد الذي أعرفه هو أنني لا أعرف شيئًا.” – سقراط</blockquote>
+      <blockquote>“الوجود يسبق الماهية.” – جان بول سارتر</blockquote>
+      <blockquote>“أنا لا أريد أن أموت بل أريد أن أحلم.” – أنارخيديس</blockquote>
+      <blockquote>“ليس المهم أن نعيش، بل أن نعيش بصدق.” – فريدريك نيتشه</blockquote>
+    </section>
+  </main>
+</div>
 
 <footer>
   &copy; 2025 chaos - جميع الحقوق محفوظة
 </footer>
 
 <script>
-  // خدمة الشات المجانية Tawk.to
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function(){
-    var s1 = document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_TAWKTO_PROPERTY_ID/1abcdefg'; // ضع معرفك الخاص هنا
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
+  // تفعيل قائمة الفلاسفة القابلة للفتح والإغلاق
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const submenu = btn.nextElementSibling;
+      if(submenu.classList.contains('show')) {
+        submenu.classList.remove('show');
+        btn.querySelector('span').textContent = '▸';
+      } else {
+        submenu.classList.add('show');
+        btn.querySelector('span').textContent = '▾';
+      }
+    });
+  });
 </script>
 
 </body>
