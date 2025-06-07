@@ -3,88 +3,179 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>chaos - موقع فلسفي</title>
+<title>chaos - عالم الفلسفة</title>
 <style>
+  /* خطوط Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Merriweather:ital,wght@0,400;1,700&display=swap');
+
+  /* ألوان الموقع */
+  :root {
+    --color-bg: #121212;
+    --color-primary: #80d0c7;
+    --color-secondary: #3a3a3a;
+    --color-accent: #ff5e62;
+    --color-text: #e0e0e0;
+    --color-muted: #999999;
+  }
+
+  /* إعادة ضبط الأساس */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a1a;
-    color: #eee;
-    margin: 0; padding: 0;
-    display: flex; flex-direction: column; min-height: 100vh;
+    font-family: 'Cairo', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
+
   header {
-    background: #333;
-    padding: 1em;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+    padding: 1.5rem 2rem;
     text-align: center;
-    font-size: 2em;
-    font-weight: bold;
-    letter-spacing: 0.1em;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    letter-spacing: 0.15em;
+    color: #fff;
+    text-transform: uppercase;
     user-select: none;
+    box-shadow: 0 3px 10px rgba(255, 94, 98, 0.5);
   }
+
   main {
     flex: 1;
-    padding: 1em 2em;
-    max-width: 900px;
-    margin: auto;
+    max-width: 960px;
+    margin: 2rem auto 3rem auto;
+    padding: 0 1rem;
   }
+
   section {
-    margin-bottom: 2em;
+    background: var(--color-secondary);
+    border-radius: 12px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    transition: transform 0.3s ease;
   }
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,94,98,0.7);
+  }
+
   h2 {
-    border-bottom: 2px solid #555;
-    padding-bottom: 0.3em;
+    font-family: 'Merriweather', serif;
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+    border-right: 5px solid var(--color-accent);
+    padding-right: 0.8rem;
+    user-select: none;
   }
-  a {
-    color: #7ed6df;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+
   ul {
     list-style: none;
-    padding-right: 0;
   }
+
   li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.9rem;
   }
+
+  a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
   blockquote {
-    border-right: 4px solid #7ed6df;
-    padding-right: 1em;
-    color: #a0d8ef;
     font-style: italic;
-    margin: 0.5em 0 1em 0;
+    color: var(--color-primary);
+    border-right: 6px solid var(--color-accent);
+    padding-right: 1rem;
+    margin: 1rem 0 1.5rem 0;
+    font-size: 1.15rem;
+    user-select: text;
   }
+
   #donate {
-    background: #7ed6df;
-    color: #111;
+    background: var(--color-accent);
     border: none;
-    padding: 1em 2em;
-    font-weight: bold;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 30px;
+    color: #fff;
     cursor: pointer;
-    border-radius: 5px;
+    transition: background 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+    user-select: none;
   }
+  #donate:hover {
+    background: #ff3b40;
+  }
+
   footer {
-    background: #222;
-    color: #777;
+    background: var(--color-secondary);
+    padding: 1.2rem 1rem;
     text-align: center;
-    padding: 1em;
-    font-size: 0.9em;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    user-select: none;
   }
-  /* Chat embed container */
+
+  /* Chat container - full width & height */
   #chat-container {
-    margin-top: 2em;
-    border: 1px solid #444;
-    height: 300px;
+    height: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(255,94,98,0.6);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header {
+      font-size: 1.8rem;
+      padding: 1rem;
+      letter-spacing: 0.1em;
+    }
+    main {
+      margin: 1rem;
+      padding: 0 0.5rem;
+    }
+    section {
+      padding: 1.2rem 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    blockquote {
+      font-size: 1rem;
+    }
+    #donate {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+    }
   }
 </style>
 </head>
 <body>
-<header>chaos</header>
-<main>
 
+<header>chaos</header>
+
+<main>
   <section id="links">
-    <h2>روابط لمواقع فلسفية عالمية</h2>
+    <h2>روابط فلسفية عالمية</h2>
     <ul>
       <li><a href="https://plato.stanford.edu/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy</a></li>
       <li><a href="https://iep.utm.edu/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy</a></li>
@@ -117,22 +208,21 @@
 
   <section id="chat">
     <h2>الشات الفلسفي</h2>
-    <!-- سأستخدم هنا مثال لدمج خدمة Tawk.to مجانية للدردشة -->
     <div id="chat-container"></div>
   </section>
-
 </main>
+
 <footer>
   &copy; 2025 chaos - جميع الحقوق محفوظة
 </footer>
 
 <script>
-  // دمج خدمة Tawk.to للشات (مجانية، يمكن التسجيل وإضافة الكود الخاص بك)
+  // خدمة الشات المجانية Tawk.to
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
   (function(){
     var s1 = document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_TAWKTO_PROPERTY_ID/1abcdefg'; // ضع هنا معرف حساب Tawk.to الخاص بك
+    s1.src='https://embed.tawk.to/YOUR_TAWKTO_PROPERTY_ID/1abcdefg'; // ضع معرفك الخاص هنا
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
