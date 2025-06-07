@@ -1,35 +1,77 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>chaos - الصفحة الرئيسية</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عقل صوفيا – موقع فلسفي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Amiri', serif; }
+  </style>
 </head>
-<body>
-  <div class="sidebar">
-    <h2>قائمة الموقع</h2>
-    <div class="has-submenu">
-      <a href="#">فلاسفة</a>
-      <div class="submenu">
-        <a href="nietzsche.html">نيتشه</a>
-        <a href="socrates.html">سقراط</a>
-        <a href="plato.html">أفلاطون</a>
+<body class="bg-[#fdfaf5] text-[#222]">  <!-- Header -->  <header class="bg-white shadow p-4 flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-2xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
+    <nav class="space-x-4 space-x-reverse">
+      <a href="#articles" class="text-[#222] hover:text-[#c2a46e]">مقالات</a>
+      <a href="#philosophers" class="text-[#222] hover:text-[#c2a46e]">فلاسفة</a>
+      <a href="#quotes" class="text-[#222] hover:text-[#c2a46e]">شذرات</a>
+      <a href="#books" class="text-[#222] hover:text-[#c2a46e]">كتب</a>
+      <a href="#chat" class="text-[#222] hover:text-[#c2a46e]">الدردشة</a>
+    </nav>
+  </header>  <!-- Articles Section -->  <section id="articles" class="p-6 max-w-5xl mx-auto">
+    <h2 class="text-2xl mb-4 border-b pb-2">أحدث المقالات</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="bg-white p-4 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">نيتشه وولادة التراجيديا</h3>
+        <p class="text-sm">مقال يستعرض العلاقة بين الفن والألم في فكر نيتشه...</p>
+        <a href="#" class="text-[#c2a46e] text-sm">اقرأ المزيد →</a>
+      </article>
+      <article class="bg-white p-4 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">ديكارت والشك المنهجي</h3>
+        <p class="text-sm">مدخل لفهم كيف أن الشك قاد ديكارت إلى اليقين الوجودي...</p>
+        <a href="#" class="text-[#c2a46e] text-sm">اقرأ المزيد →</a>
+      </article>
+    </div>
+  </section>  <!-- Philosophers Section -->  <section id="philosophers" class="p-6 max-w-5xl mx-auto">
+    <h2 class="text-2xl mb-4 border-b pb-2">فلاسفة بارزون</h2>
+    <div class="flex flex-wrap gap-4">
+      <div class="bg-white p-4 shadow rounded w-40 text-center">
+        <img src="https://via.placeholder.com/100" alt="نيتشه" class="mx-auto mb-2 rounded-full">
+        <h3 class="text-sm">فريدريك نيتشه</h3>
+      </div>
+      <div class="bg-white p-4 shadow rounded w-40 text-center">
+        <img src="https://via.placeholder.com/100" alt="أفلاطون" class="mx-auto mb-2 rounded-full">
+        <h3 class="text-sm">أفلاطون</h3>
       </div>
     </div>
-    <a href="books.html">كتب</a>
-    <a href="support.html">دعم</a>
-    <a href="chat.html">شات فلسفي</a>
-  </div>
-
-  <div class="content">
-    <h1>مرحباً بك في موقع chaos</h1>
-    <p>موقع فلسفي غني بمقتطفات وشذرات فكرية لمشاهير الفلاسفة، وروابط تحميل كتب فلسفية، ومنصة نقاش ودعم.</p>
-
-    <h3>مقتطفات فلسفية متنوعة</h3>
-    <blockquote>“من يملك سبباً قويًا ليعيش، يمكنه أن يتحمل أي كيف.” – فريدريك نيتشه</blockquote>
-    <blockquote>“اعرف نفسك” – سقراط</blockquote>
-    <blockquote>“الفضيلة هي معرفة الخير والشر.” – أفلاطون</blockquote>
-  </div>
-</body>
+  </section>  <!-- Quotes Section -->  <section id="quotes" class="bg-[#fffbe6] py-6">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-xl mb-4">شذرات فلسفية</h2>
+      <blockquote id="quoteBox" class="italic text-lg text-[#555]">"اعرف نفسك" – سقراط</blockquote>
+    </div>
+  </section>  <!-- Books Section -->  <section id="books" class="p-6 max-w-5xl mx-auto">
+    <h2 class="text-2xl mb-4 border-b pb-2">روابط كتب فلسفية</h2>
+    <ul class="list-disc pl-6 text-sm space-y-2">
+      <li><a href="#" class="text-[#c2a46e]">ما بعد الخير والشر – نيتشه (PDF)</a></li>
+      <li><a href="#" class="text-[#c2a46e]">الوجود والعدم – سارتر (PDF)</a></li>
+    </ul>
+  </section>  <!-- Chat Section -->  <section id="chat" class="bg-white p-6 max-w-4xl mx-auto mt-8 shadow rounded">
+    <h2 class="text-xl mb-2">الدردشة الفلسفية (قريباً)</h2>
+    <p class="text-sm text-gray-600">سيتم قريبًا إضافة دردشة حية للنقاشات الفلسفية والردود.</p>
+  </section>  <!-- Footer -->  <footer class="bg-[#f5f5dc] text-center p-4 mt-10 text-sm text-[#444]">
+    &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة
+  </footer>  <script>
+    // اقتباسات متغيرة
+    const quotes = [
+      '"اعرف نفسك" – سقراط',
+      '"الوجود يسبق الماهية" – سارتر',
+      '"العقل أداة وليست مصدراً للحقيقة" – نيتشه',
+      '"الشك أصل الحكمة" – ديكارت'
+    ];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % quotes.length;
+      document.getElementById('quoteBox').textContent = quotes[i];
+    }, 6000);
+  </script></body>
 </html>
