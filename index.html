@@ -1,71 +1,96 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>chaos - الصفحة الرئيسية</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>chaos - الصفحة الرئيسية</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* تصميم القائمة الجانبية */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #121212;
+      color: #ddd;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #1e1e1e;
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+      position: fixed;
+      overflow-y: auto;
+    }
+    .sidebar h2 {
+      color: #ff6f61;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .sidebar a {
+      display: block;
+      color: #ddd;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #ff6f61;
+      color: white;
+    }
+    .submenu {
+      padding-right: 15px;
+      font-size: 0.9em;
+      display: none;
+      margin-bottom: 10px;
+    }
+    .has-submenu:hover .submenu {
+      display: block;
+    }
+    .content {
+      margin-right: 270px;
+      padding: 20px;
+      max-width: 900px;
+      box-sizing: border-box;
+    }
+    h1, h3 {
+      color: #ff6f61;
+    }
+    blockquote {
+      border-right: 4px solid #ff6f61;
+      padding-right: 15px;
+      font-style: italic;
+      margin: 20px 0;
+      color: #bbb;
+    }
+  </style>
 </head>
 <body>
-
-<header>chaos</header>
-
-<div class="container">
-  <nav class="sidebar">
-    <h3>القائمة</h3>
-    <ul>
-      <li><a href="index.html">الرئيسية</a></li>
-      <li>
-        <button class="expand-btn">الفلاسفة
-          <span>▸</span>
-        </button>
-        <ul class="submenu">
-          <li><a href="nietzsche.html">فريدريك نيتشه</a></li>
-          <li><a href="socrates.html">سقراط</a></li>
-          <li><a href="plato.html">أفلاطون</a></li>
-        </ul>
-      </li>
-      <li><a href="books.html">الكتب</a></li>
-      <li><a href="support.html">دعم الموقع</a></li>
-      <li><a href="chat.html">الشات الفلسفي</a></li>
-    </ul>
-  </nav>
-
-  <main class="content">
-    <h2>مرحبًا بك في chaos</h2>
-    <p>هذا الموقع هو مساحة تجمع بين عالم الفلسفة وروح الإبداع، حيث تجد روابط لمواقع فلسفية عالمية، مقتطفات فلسفية ملهمة، تحميل كتب، ومكان للنقاش الفلسفي الحر.</p>
-
-    <p>أنا أنارخيديس، صانع هذا الفضاء، أؤمن بأن الفلسفة هي مفتاح لفهم الذات والوجود، وهذا الموقع هدية لكل باحث عن الحقيقة والمعنى.</p>
-
-    <section id="quotes-home">
-      <h2>مقتطفات فلسفية متنوعة</h2>
-      <blockquote>“الشيء الوحيد الذي أعرفه هو أنني لا أعرف شيئًا.” – سقراط</blockquote>
-      <blockquote>“الوجود يسبق الماهية.” – جان بول سارتر</blockquote>
-      <blockquote>“أنا لا أريد أن أموت بل أريد أن أحلم.” – أنارخيديس</blockquote>
-      <blockquote>“ليس المهم أن نعيش، بل أن نعيش بصدق.” – فريدريك نيتشه</blockquote>
-    </section>
-  </main>
-</div>
-
-<footer>
-  &copy; 2025 chaos - جميع الحقوق محفوظة
-</footer>
-
-<script>
-  // تفعيل قائمة الفلاسفة القابلة للفتح والإغلاق
-  document.querySelectorAll('.expand-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const submenu = btn.nextElementSibling;
-      if(submenu.classList.contains('show')) {
-        submenu.classList.remove('show');
-        btn.querySelector('span').textContent = '▸';
-      } else {
-        submenu.classList.add('show');
-        btn.querySelector('span').textContent = '▾';
-      }
-    });
-  });
-</script>
-
+  <div class="sidebar">
+    <h2>قائمة الموقع</h2>
+    <div class="has-submenu">
+      <a href="#">فلاسفة ▼</a>
+      <div class="submenu">
+        <a href="nietzsche.html">نيتشه</a>
+        <a href="socrates.html">سقراط</a>
+        <a href="plato.html">أفلاطون</a>
+      </div>
+    </div>
+    <a href="books.html">كتب</a>
+    <a href="support.html">دعم</a>
+    <a href="chat.html">شات فلسفي</a>
+  </div>
+  <div class="content">
+    <h1>مرحباً بك في موقع chaos</h1>
+    <p>موقع فلسفي غني بمقتطفات وشذرات فكرية لمشاهير الفلاسفة، وروابط تحميل كتب فلسفية، ومنصة نقاش ودعم.</p>
+    
+    <h3>مقتطفات فلسفية متنوعة</h3>
+    <blockquote>“من يملك سبباً قويًا ليعيش، يمكنه أن يتحمل أي كيف.” – فريدريك نيتشه</blockquote>
+    <blockquote>“اعرف نفسك” – سقراط</blockquote>
+    <blockquote>“الفضيلة هي معرفة الخير والشر.” – أفلاطون</blockquote>
+  </div>
 </body>
 </html>
