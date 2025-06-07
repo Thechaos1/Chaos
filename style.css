@@ -1,173 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Merriweather:ital,wght@0,400;1,700&display=swap');
-
-:root {
-  --color-bg: #121212;
-  --color-primary: #80d0c7;
-  --color-secondary: #2a2a2a;
-  --color-accent: #ff5e62;
-  --color-text: #e0e0e0;
-  --color-muted: #999999;
-}
+/* style.css */
 
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Cairo', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ddd;
+  display: flex;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-header {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
-  padding: 1.5rem 2rem;
+/* القائمة الجانبية */
+.sidebar {
+  width: 250px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  flex-shrink: 0; /* تمنع القائمة من الانكماش */
+  overflow-y: auto;
+  position: fixed; /* تجعلها ثابتة */
+  height: 100vh;
+  right: 0; /* لأن اللغة عربية (RTL) */
+  direction: rtl;
+}
+
+.sidebar h2 {
+  color: #ff6f61;
+  margin-bottom: 20px;
   text-align: center;
-  font-family: 'Merriweather', serif;
-  font-weight: 700;
-  font-size: 2.6rem;
-  letter-spacing: 0.15em;
-  color: #fff;
-  text-transform: uppercase;
-  user-select: none;
-  box-shadow: 0 3px 10px rgba(255, 94, 98, 0.5);
 }
 
-.container {
-  display: flex;
-  max-width: 1100px;
-  margin: 1.5rem auto 3rem auto;
-  padding: 0 1rem;
-  gap: 2rem;
+.sidebar a {
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
 }
 
-nav.sidebar {
-  width: 240px;
-  background: var(--color-secondary);
-  border-radius: 12px;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-  user-select: none;
-}
-
-nav.sidebar h3 {
-  color: var(--color-accent);
-  font-family: 'Merriweather', serif;
-  margin-bottom: 1rem;
-  cursor: default;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-
-nav.sidebar ul {
-  list-style: none;
-}
-
-nav.sidebar ul li {
-  margin-bottom: 1rem;
-}
-
-nav.sidebar ul li a,
-nav.sidebar ul li button.expand-btn {
-  color: var(--color-text);
-  font-weight: 600;
-  background: none;
-  border: none;
-  width: 100%;
-  text-align: right;
+.sidebar a:hover {
+  background-color: #ff6f61;
+  color: white;
   cursor: pointer;
-  font-size: 1.05rem;
-  padding: 0.4rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-  transition: color 0.3s ease;
 }
 
-nav.sidebar ul li a:hover,
-nav.sidebar ul li button.expand-btn:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
+.has-submenu > a::after {
+  content: " ▼";
+  font-size: 0.8em;
 }
 
-nav.sidebar ul li ul.submenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-  margin-top: 0.5rem;
-  padding-right: 0.5rem;
-  border-right: 2px solid var(--color-accent);
+.submenu {
+  display: none;
+  padding-right: 15px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  direction: rtl;
 }
 
-nav.sidebar ul li ul.submenu.show {
-  max-height: 500px; /* كبير بما يكفي لعرض المحتوى */
-}
-
-nav.sidebar ul li ul.submenu li {
-  margin-bottom: 0.6rem;
-}
-
-nav.sidebar ul li ul.submenu li a {
-  font-weight: 400;
-  font-size: 0.95rem;
-  color: var(--color-muted);
-  padding-right: 1rem;
+.has-submenu:hover .submenu {
   display: block;
 }
 
-nav.sidebar ul li ul.submenu li a:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
+.submenu a {
+  padding: 8px 15px;
+  font-size: 0.9em;
 }
 
-main.content {
-  flex: 1;
-  background: var(--color-secondary);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+/* المحتوى الرئيسي */
+.content {
+  margin-right: 250px; /* نفس عرض القائمة */
+  padding: 30px 40px;
+  flex-grow: 1;
+  max-width: 900px;
+  direction: rtl;
+  overflow-wrap: break-word;
 }
 
-main.content h2 {
-  font-family: 'Merriweather', serif;
-  font-size: 2rem;
-  color: var(--color-accent);
-  margin-bottom: 1rem;
-  user-select: none;
-  border-right: 6px solid var(--color-accent);
-  padding-right: 1rem;
+h1, h3 {
+  color: #ff6f61;
 }
 
 blockquote {
+  border-right: 4px solid #ff6f61;
+  padding-right: 15px;
   font-style: italic;
-  color: var(--color-primary);
-  border-right: 6px solid var(--color-accent);
-  padding-right: 1rem;
-  margin: 1.5rem 0;
-  font-size: 1.25rem;
-  user-select: text;
-}
-
-footer {
-  background: var(--color-secondary);
-  padding: 1rem;
-  text-align: center;
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  user-select: none;
-}
-
-@media (max-width: 860px) {
-  .container {
-    flex-direction: column;
-  }
-  nav.sidebar {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+  margin: 20px 0;
+  color: #bbb;
+  background-color: #222;
+  border-radius: 5px;
 }
