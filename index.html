@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>عقل صوفيا – الموقع الفلسفي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>anarchides – الموقع الفلسفي</title>
   <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -19,9 +19,19 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Amiri', serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    a {
+      transition: color 0.3s;
     }
   </style>
   <script>
+    // تطبيق الثيم عند تحميل الصفحة
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
     function toggleTheme() {
       const html = document.documentElement;
       if (html.getAttribute('data-theme') === 'dark') {
@@ -32,25 +42,25 @@
         localStorage.setItem('theme', 'dark');
       }
     }
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
   </script>
 </head>
 <body>
   <!-- Header -->
   <header class="bg-white dark:bg-[#2a2a2a] shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
+    <h1 class="text-xl font-bold text-[#c2a46e]">anarchides</h1>
     <nav class="space-x-4 space-x-reverse text-sm">
       <a href="index.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">الرئيسية</a>
       <a href="nietzsche.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">نيتشه</a>
       <a href="library.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">مكتبة الكتب</a>
+      <a href="privacy.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">سياسة الخصوصية</a>
+      <a href="support.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">الدعم</a>
       <button onclick="toggleTheme()" class="bg-[#c2a46e] text-white px-2 py-1 rounded">☀️ / 🌙</button>
     </nav>
   </header>
+
   <!-- Main Content -->
   <main class="p-6 max-w-3xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-4">مرحبًا بك في عقل صوفيا 🧠</h2>
+    <h2 class="text-3xl font-semibold mb-4">مرحبًا بك في anarchides 🧠</h2>
     <p class="text-lg leading-loose">منصة فلسفية تحتوي على مقالات، شذرات، فلاسفة، روابط كتب، ونقاشات تفاعلية تهدف لإثراء العقل والفكر.</p>
     <div class="grid md:grid-cols-2 gap-6 mt-10">
       <a href="nietzsche.html" class="block bg-white dark:bg-[#333] rounded shadow p-4 hover:shadow-lg transition">
@@ -63,12 +73,13 @@
       </a>
     </div>
   </main>
+
   <!-- Footer -->
   <footer class="bg-[#f5f5dc] dark:bg-[#111] text-center p-4 mt-10 text-sm text-[#444] dark:text-gray-400">
-    &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة
+    &copy; 2025 anarchides – جميع الحقوق محفوظة
   </footer>
 
-  <!-- Start of Tawk.to Script -->
+  <!-- Tawk.to Chat Script -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -80,7 +91,5 @@
       s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
-  <!-- End of Tawk.to Script -->
-
 </body>
 </html>
