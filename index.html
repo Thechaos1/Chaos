@@ -1,79 +1,153 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عقل صوفيا – الصفحة الرئيسية</title>
-  <meta name="description" content="موقع عقل صوفيا يقدم محتوى فلسفي مميز يشمل مقالات، كتب، وسير الفلاسفة." />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>عقل صوفيا - الصفحة الرئيسية | Sophia Mind - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Amiri', serif; }
-    .dropdown:hover .dropdown-menu { display: block; }
+    body {
+      font-family: 'Amiri', serif;
+    }
   </style>
 </head>
-<body class="bg-[#fdfaf5] text-[#222]">
+<body class="bg-[#fdfaf5] text-[#222] transition-colors duration-300" data-theme="light">
 
-  <!-- Chat Script -->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
+  <!-- قائمة التنقل -->
+  <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
+    <ul class="flex space-x-4 rtl:space-x-reverse rtl:flex-row-reverse items-center">
 
-  <!-- Navigation Bar -->
-  <header class="bg-white shadow p-4">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
-      <nav class="flex items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-[#c2a46e]">الرئيسية</a>
-        <div class="relative dropdown">
-          <span class="cursor-pointer hover:text-[#c2a46e]">الفلاسفة</span>
-          <ul class="absolute dropdown-menu hidden bg-white shadow rounded mt-2 w-40 text-right z-10">
-            <li><a href="nietzsche.html" class="block px-4 py-2 hover:bg-gray-100">نيتشه</a></li>
-            <!-- أضف فلاسفة آخرين هنا -->
-          </ul>
-        </div>
-        <a href="library.html" class="hover:text-[#c2a46e]">المكتبة</a>
-        <a href="support.html" class="hover:text-[#c2a46e]">الدعم</a>
-        <a href="privacy.html" class="hover:text-[#c2a46e]">سياسة الخصوصية</a>
-      </nav>
-    </div>
-  </header>
+      <li><a href="index.html" class="hover:text-[#c2a46e]">الرئيسية</a></li>
 
-  <!-- Hero Section -->
-  <section class="text-center p-10 max-w-3xl mx-auto">
-    <h2 class="text-3xl font-bold text-[#c2a46e] mb-4">مرحبًا بك في عالم الفلسفة</h2>
-    <p class="text-lg text-gray-700">استكشف أفكار الفلاسفة، اقرأ كتبهم، واغمر نفسك في التأمل الفلسفي العميق.</p>
-  </section>
+      <li class="relative group">
+        <button class="hover:text-[#c2a46e] focus:outline-none flex items-center gap-1">
+          الفلاسفة
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul
+          class="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-10 rtl:right-auto rtl:left-0"
+        >
+          <li><a href="nietzsche.html" class="block px-4 py-2 hover:bg-[#f0e6c9]">نيتشه</a></li>
+          <!-- أضف فلاسفة آخرين هنا -->
+          <li><a href="#" class="block px-4 py-2 hover:bg-[#f0e6c9]">سارتر</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-[#f0e6c9]">كانط</a></li>
+        </ul>
+      </li>
 
-  <!-- Featured Books or Philosophers -->
-  <section class="p-6 max-w-5xl mx-auto">
-    <h3 class="text-xl font-semibold mb-4 border-b pb-2">📚 كتب مختارة</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-      <div class="bg-white p-4 rounded shadow">
-        <h4 class="font-semibold">هكذا تكلم زرادشت – نيتشه</h4>
-        <p class="text-gray-600">رحلة رمزية عميقة نحو فهم الإنسان الأعلى.</p>
-        <a href="#" class="text-[#c2a46e]">تحميل PDF</a>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h4 class="font-semibold">الوجود والعدم – سارتر</h4>
-        <p class="text-gray-600">عمل وجودي جوهري حول الحرية والوعي والذات.</p>
-        <a href="#" class="text-[#c2a46e]">تحميل PDF</a>
-      </div>
-    </div>
-  </section>
+      <li><a href="library.html" class="hover:text-[#c2a46e]">المكتبة</a></li>
+      <li><a href="privacy.html" class="hover:text-[#c2a46e]">سياسة الخصوصية</a></li>
+      <li><a href="support.html" class="hover:text-[#c2a46e]">الدعم</a></li>
 
-  <!-- Footer -->
+      <!-- زر تبديل اللغة -->
+      <li>
+        <button id="lang-toggle" class="bg-[#c2a46e] text-white px-3 py-1 rounded text-sm">
+          EN
+        </button>
+      </li>
+
+      <!-- زر الوضع الداكن -->
+      <li>
+        <button id="theme-toggle" class="bg-[#c2a46e] text-white px-3 py-1 rounded text-sm">
+          🌙
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="p-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-4" data-lang-ar="مرحباً بك في عقل صوفيا" data-lang-en="Welcome to Sophia Mind">مرحباً بك في عقل صوفيا</h2>
+
+    <p class="mb-4 text-lg leading-relaxed" data-lang-ar="موقع فلسفي عربي يهدف إلى نشر الفكر الحر وتعريف الزوار بالفلاسفة والكتب." data-lang-en="An Arabic philosophical site aiming to spread free thought and introduce visitors to philosophers and books.">
+      موقع فلسفي عربي يهدف إلى نشر الفكر الحر وتعريف الزوار بالفلاسفة والكتب.
+    </p>
+
+    <section>
+      <h3 class="text-2xl font-semibold mb-2" data-lang-ar="أحدث المقالات" data-lang-en="Latest Articles">أحدث المقالات</h3>
+      <ul class="list-disc list-inside space-y-2">
+        <li><a href="#" class="text-[#c2a46e] hover:underline" data-lang-ar="مقال عن الوجودية" data-lang-en="Article on Existentialism">مقال عن الوجودية</a></li>
+        <li><a href="#" class="text-[#c2a46e] hover:underline" data-lang-ar="مقدمة في نيتشه" data-lang-en="Introduction to Nietzsche">مقدمة في نيتشه</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- التذييل -->
   <footer class="bg-[#f5f5dc] text-center p-4 mt-10 text-sm text-[#444]">
-    &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة
+    &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة | &copy; 2025 Sophia Mind – All rights reserved
   </footer>
 
+  <!-- كود الشات Tawk.to -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+      Tawk_LoadStart = new Date()
+    ;(function () {
+      var s1 = document.createElement('script'),
+        s0 = document.getElementsByTagName('script')[0]
+      s1.async = true
+      s1.src = 'https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui'
+      s1.charset = 'UTF-8'
+      s1.setAttribute('crossorigin', '*')
+      s0.parentNode.insertBefore(s1, s0)
+    })()
+  </script>
+
+  <!-- سكريبت تبديل اللغة -->
+  <script>
+    const langToggleBtn = document.getElementById('lang-toggle')
+    const themeToggleBtn = document.getElementById('theme-toggle')
+    const html = document.documentElement
+    const body = document.body
+
+    // تخزين اللغة والموضوع في localStorage
+    const savedLang = localStorage.getItem('lang') || 'ar'
+    const savedTheme = localStorage.getItem('theme') || 'light'
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-lang-ar]').forEach(el => {
+        el.textContent = el.getAttribute(`data-lang-${lang}`)
+      })
+      if (lang === 'ar') {
+        html.lang = 'ar'
+        html.dir = 'rtl'
+        langToggleBtn.textContent = 'EN'
+      } else {
+        html.lang = 'en'
+        html.dir = 'ltr'
+        langToggleBtn.textContent = 'ع'
+      }
+      localStorage.setItem('lang', lang)
+    }
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        body.classList.add('bg-[#222]', 'text-[#eee]')
+        body.classList.remove('bg-[#fdfaf5]', 'text-[#222]')
+        themeToggleBtn.textContent = '☀️'
+      } else {
+        body.classList.remove('bg-[#222]', 'text-[#eee]')
+        body.classList.add('bg-[#fdfaf5]', 'text-[#222]')
+        themeToggleBtn.textContent = '🌙'
+      }
+      localStorage.setItem('theme', theme)
+    }
+
+    langToggleBtn.addEventListener('click', () => {
+      const newLang = localStorage.getItem('lang') === 'ar' ? 'en' : 'ar'
+      setLanguage(newLang)
+    })
+
+    themeToggleBtn.addEventListener('click', () => {
+      const newTheme = localStorage.getItem('theme') === 'light' ? 'dark' : 'light'
+      setTheme(newTheme)
+    })
+
+    // تهيئة الصفحة مع الإعدادات المحفوظة
+    setLanguage(savedLang)
+    setTheme(savedTheme)
+  </script>
 </body>
 </html>
