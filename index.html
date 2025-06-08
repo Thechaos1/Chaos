@@ -1,158 +1,163 @@
-<!DOCTYPE html><html lang="ar"><head>
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anarchides</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <title>anarchides</title>
   <style>
     body {
-      font-family: 'Cairo', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #111;
-      color: #fff;
-    }header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #000;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-}
-
-.site-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.menu-toggle {
-  font-size: 1.5rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: white;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 250px;
-  background-color: rgba(0, 0, 0, 0.95);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  padding-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  z-index: 20;
-}
-
-nav.open {
-  transform: translateX(0);
-}
-
-nav a {
-  padding: 1rem;
-  color: white;
-  text-decoration: none;
-  border-bottom: 1px solid #333;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: none;
-  z-index: 15;
-}
-
-.overlay.show {
-  display: block;
-}
-
-main {
-  padding-top: 80px;
-  text-align: center;
-}
-
-.quotes {
-  font-size: 1.2rem;
-  animation: fade 5s infinite;
-}
-
-@keyframes fade {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-.philosophers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.philosopher {
-  margin: 1rem;
-  padding: 1rem;
-  background-color: #222;
-  border-radius: 10px;
-  width: 150px;
-  transition: transform 0.2s;
-}
-
-.philosopher:hover {
-  transform: scale(1.05);
-}
-
-.philosopher a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background-color: #f5f5f5;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .menu-toggle {
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 2rem 1rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 1001;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index: 1000;
+    }
+    .overlay.show {
+      display: block;
+    }
+    .hero {
+      padding: 2rem;
+      text-align: center;
+      background-color: #ffffff;
+    }
+    .hero h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333333;
+    }
+    .philosophers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+    .card {
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: #f5f5f5;
+      margin-top: 2rem;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
   </style>
-</head><body>
+</head>
+<body>
   <div class="overlay" id="overlay"></div>
   <header>
-    <div class="site-title">Anarchides</div>
-    <button class="menu-toggle" id="menu-toggle">☰</button>
-  </header>  <nav id="sidebar">
+    <div class="logo">anarchides</div>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </header>
+  <nav class="sidebar" id="sidebar">
     <a href="index.html">الرئيسية</a>
-    <a href="philosophers.html">الفلاسفة</a>
-    <a href="nietzsche.html">نيتشه</a>
-    <a href="library.html">المكتبة</a>
-    <a href="about.html">حول</a>
-    <a href="support.html">الدعم</a>
-    <a href="privacy.html">سياسة الخصوصية</a>
-  </nav>  <main>
-    <div class="quotes">"من لديه سبب للعيش يمكنه تحمل أي كيف." – نيتشه</div><section class="philosophers">
-  <div class="philosopher"><a href="nietzsche.html">نيتشه</a></div>
-  <div class="philosopher"><a href="#">سقراط</a></div>
-  <div class="philosopher"><a href="#">أفلاطون</a></div>
-  <div class="philosopher"><a href="#">كانط</a></div>
-  <div class="philosopher"><a href="#">ديكارت</a></div>
-</section>
-
-  </main>  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-
-    toggle.addEventListener('click', () => {
+    <a href="#">الفلاسفة</a>
+    <a href="#">سياسة الخصوصية</a>
+    <a href="#">الدعم</a>
+  </nav>  <section class="hero">
+    <h1>كل ما نسمع رأي وليس حقيقة، وكل ما نرى هو وجهة نظر وليس واقع - ماركوس أوريليوس</h1>
+  </section>  <section class="philosophers">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Socrates_Louvre.jpg" alt="سقراط">
+      <div>سقراط</div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
+      <div>أفلاطون</div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Aristotle_Altemps_Inv8575.jpg" alt="أرسطو">
+      <div>أرسطو</div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Raphael_-_Detail_of_Descartes.jpg" alt="ديكارت">
+      <div>ديكارت</div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Kant_gemaelde_3.jpg" alt="كانط">
+      <div>كانط</div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Nietzsche1882.jpg" alt="نيتشه">
+      <div>نيتشه</div>
+    </div>
+  </section>  <footer>
+    &copy; 2025 anarchides. جميع الحقوق محفوظة.
+  </footer>  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
       sidebar.classList.toggle('open');
       overlay.classList.toggle('show');
-    });
-
-    overlay.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('show');
-    });
-  </script></body></html>
+    }
+    document.getElementById('overlay').addEventListener('click', toggleSidebar);
+  </script></body>
+</html>
