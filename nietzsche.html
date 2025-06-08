@@ -2,79 +2,150 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نيتشه – Anarchides</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نيتشه | Nietzsche - عقل صوفيا</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Amiri', serif; }
-    .dropdown:hover .dropdown-menu { display: block; }
+    body {
+      font-family: 'Amiri', serif;
+    }
   </style>
 </head>
-<body class="bg-[#fdfaf5] text-[#222]">
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
-  <!--End of Tawk.to Script-->
+<body class="bg-[#fdfaf5] text-[#222] transition-colors duration-300" data-theme="light">
 
-  <!-- Header -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-[#c2a46e]">Anarchides</h1>
-    <nav class="flex items-center gap-6 text-sm">
-      <a href="index.html" class="text-[#222] hover:text-[#c2a46e]">الرئيسية</a>
-      <div class="relative dropdown">
-        <span class="cursor-pointer text-[#222] hover:text-[#c2a46e]">الفلاسفة</span>
-        <ul class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded dropdown-menu hidden text-right z-10">
-          <li><a href="nietzsche.html" class="block px-4 py-2 hover:bg-gray-100">نيتشه</a></li>
-          <!-- أضف المزيد من الفلاسفة هنا -->
+  <!-- قائمة التنقل -->
+  <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
+    <ul class="flex space-x-4 rtl:space-x-reverse rtl:flex-row-reverse items-center">
+
+      <li><a href="index.html" class="hover:text-[#c2a46e]">الرئيسية</a></li>
+
+      <li class="relative group">
+        <button class="hover:text-[#c2a46e] focus:outline-none flex items-center gap-1">
+          الفلاسفة
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul
+          class="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-10 rtl:right-auto rtl:left-0"
+        >
+          <li><a href="nietzsche.html" class="block px-4 py-2 hover:bg-[#f0e6c9]">نيتشه</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-[#f0e6c9]">سارتر</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-[#f0e6c9]">كانط</a></li>
         </ul>
-      </div>
-      <a href="library.html" class="text-[#222] hover:text-[#c2a46e]">المكتبة</a>
-      <a href="privacy.html" class="text-[#222] hover:text-[#c2a46e]">سياسة الخصوصية</a>
-      <a href="support.html" class="text-[#222] hover:text-[#c2a46e]">الدعم</a>
-    </nav>
-  </header>
+      </li>
 
-  <!-- Nietzsche Section -->
-  <section class="p-6 max-w-4xl mx-auto">
-    <div class="text-center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" alt="نيتشه" class="w-32 h-32 rounded-full mx-auto mb-4 shadow">
-      <h2 class="text-2xl font-semibold">فريدريك نيتشه</h2>
-      <p class="text-sm text-gray-600">1844 – 1900</p>
-    </div>
-    <div class="mt-6 text-lg leading-relaxed">
-      <p>فيلسوف ألماني عُرف بكتاباته العميقة التي تناولت الأخلاق، الدين، القوة، والفن. اعتبر أن الحقيقة مفهوم متغير وأن الإنسان الأعلى (Übermensch) هو هدف الإنسانية المتقدمة.</p>
-    </div>
-    <div class="mt-8">
-      <h3 class="text-xl border-b pb-2 mb-4">شذرات مختارة</h3>
-      <ul class="list-disc space-y-2 pl-6 text-sm">
-        <li>"من ينظر طويلاً إلى الهاوية، فإن الهاوية تنظر إليه أيضاً."</li>
-        <li>"ما لا يقتلني، يجعلني أقوى."</li>
-        <li>"لقد مات الله! ونحن قتلناه."</li>
-      </ul>
-    </div>
-    <div class="mt-8">
-      <h3 class="text-xl border-b pb-2 mb-4">روابط كتبه</h3>
-      <ul class="list-disc space-y-2 pl-6 text-sm">
-        <li><a href="#" class="text-[#c2a46e]">هكذا تكلم زرادشت (PDF)</a></li>
-        <li><a href="#" class="text-[#c2a46e]">ما وراء الخير والشر (PDF)</a></li>
-        <li><a href="#" class="text-[#c2a46e]">إرادة القوة (PDF)</a></li>
-      </ul>
-    </div>
-  </section>
+      <li><a href="library.html" class="hover:text-[#c2a46e]">المكتبة</a></li>
+      <li><a href="privacy.html" class="hover:text-[#c2a46e]">سياسة الخصوصية</a></li>
+      <li><a href="support.html" class="hover:text-[#c2a46e]">الدعم</a></li>
 
-  <!-- Footer -->
+      <!-- زر تبديل اللغة -->
+      <li>
+        <button id="lang-toggle" class="bg-[#c2a46e] text-white px-3 py-1 rounded text-sm">
+          EN
+        </button>
+      </li>
+
+      <!-- زر الوضع الداكن -->
+      <li>
+        <button id="theme-toggle" class="bg-[#c2a46e] text-white px-3 py-1 rounded text-sm">
+          🌙
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="p-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-4" data-lang-ar="فريدريك نيتشه" data-lang-en="Friedrich Nietzsche">فريدريك نيتشه</h2>
+
+    <p class="mb-4 text-lg leading-relaxed" data-lang-ar="نيتشه هو فيلسوف ألماني اشتهر بأفكاره عن الإرادة والقوة، والعدمية، وتأثيره الكبير على الفلسفة الحديثة." data-lang-en="Nietzsche was a German philosopher famous for his ideas on will to power, nihilism, and his major influence on modern philosophy.">
+      نيتشه هو فيلسوف ألماني اشتهر بأفكاره عن الإرادة والقوة، والعدمية، وتأثيره الكبير على الفلسفة الحديثة.
+    </p>
+
+    <section>
+      <h3 class="text-2xl font-semibold mb-2" data-lang-ar="أعماله الرئيسية" data-lang-en="Major Works">أعماله الرئيسية</h3>
+      <ul class="list-disc list-inside space-y-2">
+        <li data-lang-ar="هكذا تكلم زرادشت" data-lang-en="Thus Spoke Zarathustra">هكذا تكلم زرادشت</li>
+        <li data-lang-ar="ما وراء الخير والشر" data-lang-en="Beyond Good and Evil">ما وراء الخير والشر</li>
+        <li data-lang-ar="إرادة القوة" data-lang-en="The Will to Power">إرادة القوة</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- التذييل -->
   <footer class="bg-[#f5f5dc] text-center p-4 mt-10 text-sm text-[#444]">
-    &copy; 2025 Anarchides – جميع الحقوق محفوظة
+    &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة | &copy; 2025 Sophia Mind – All rights reserved
   </footer>
+
+  <!-- كود الشات Tawk.to -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+      Tawk_LoadStart = new Date()
+    ;(function () {
+      var s1 = document.createElement('script'),
+        s0 = document.getElementsByTagName('script')[0]
+      s1.async = true
+      s1.src = 'https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui'
+      s1.charset = 'UTF-8'
+      s1.setAttribute('crossorigin', '*')
+      s0.parentNode.insertBefore(s1, s0)
+    })()
+  </script>
+
+  <!-- سكريبت تبديل اللغة والوضع -->
+  <script>
+    const langToggleBtn = document.getElementById('lang-toggle')
+    const themeToggleBtn = document.getElementById('theme-toggle')
+    const html = document.documentElement
+    const body = document.body
+
+    const savedLang = localStorage.getItem('lang') || 'ar'
+    const savedTheme = localStorage.getItem('theme') || 'light'
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-lang-ar]').forEach(el => {
+        el.textContent = el.getAttribute(`data-lang-${lang}`)
+      })
+      if (lang === 'ar') {
+        html.lang = 'ar'
+        html.dir = 'rtl'
+        langToggleBtn.textContent = 'EN'
+      } else {
+        html.lang = 'en'
+        html.dir = 'ltr'
+        langToggleBtn.textContent = 'ع'
+      }
+      localStorage.setItem('lang', lang)
+    }
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        body.classList.add('bg-[#222]', 'text-[#eee]')
+        body.classList.remove('bg-[#fdfaf5]', 'text-[#222]')
+        themeToggleBtn.textContent = '☀️'
+      } else {
+        body.classList.remove('bg-[#222]', 'text-[#eee]')
+        body.classList.add('bg-[#fdfaf5]', 'text-[#222]')
+        themeToggleBtn.textContent = '🌙'
+      }
+      localStorage.setItem('theme', theme)
+    }
+
+    langToggleBtn.addEventListener('click', () => {
+      const newLang = localStorage.getItem('lang') === 'ar' ? 'en' : 'ar'
+      setLanguage(newLang)
+    })
+
+    themeToggleBtn.addEventListener('click', () => {
+      const newTheme = localStorage.getItem('theme') === 'light' ? 'dark' : 'light'
+      setTheme(newTheme)
+    })
+
+    setLanguage(savedLang)
+    setTheme(savedTheme)
+  </script>
 </body>
 </html>
