@@ -1,90 +1,93 @@
 <!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>عقل صوفيا</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .menu-open { display: block; }
-    .menu-closed { display: none; }
+    body { font-family: 'Amiri', serif; }
+    .fade-in-text {
+      animation: fadeIn 3s ease-in-out infinite alternate;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .menu-overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+    }
   </style>
 </head>
-<body class="bg-[#fdfaf5] text-[#222]">  <!-- Navbar -->  <header class="bg-[#c2a46e] text-white shadow-md">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-      <h1 class="text-xl font-bold">عقل صوفيا</h1>
-      <button id="menuToggle" class="text-3xl focus:outline-none">☰</button>
-    </div>
-    <div id="menu" class="menu-closed fixed top-0 right-0 w-2/3 h-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-50 transition-all">
-      <div class="p-6">
-        <button id="closeMenu" class="text-xl font-bold mb-4">✕</button>
-        <nav class="flex flex-col space-y-4 text-black">
-          <a href="index.html" class="hover:underline">الرئيسية</a>
-          <a href="library.html" class="hover:underline">المكتبة</a>
-          <div class="relative">
-            <span class="font-bold">الفلاسفة</span>
-            <div class="ml-4 mt-2 space-y-2">
-              <a href="nietzsche.html" class="block hover:underline">نيتشه</a>
-              <!-- أضف المزيد لاحقًا -->
-            </div>
-          </div>
-          <a href="blood.html" class="hover:underline">صفحة الدم</a>
-          <a href="privacy.html" class="hover:underline">الخصوصية</a>
-          <button onclick="toggleLang()" id="langToggleBtn">EN</button>
-        </nav>
-      </div>
-    </div>
-  </header>  <!-- Main Content -->  <main class="max-w-4xl mx-auto px-6 py-10">
-    <h2 class="text-3xl font-bold text-[#a1864a] mb-6" data-lang-ar="مرحبًا بك في عقل صوفيا" data-lang-en="Welcome to Sophia Mind">
-      مرحبًا بك في عقل صوفيا
-    </h2>
-    <p class="text-lg text-[#444] leading-relaxed mb-6" data-lang-ar="اكتشف عالم الفلسفة العميق حيث يلتقي العقل بالروح والذات." data-lang-en="Explore the deep world of philosophy, where mind meets soul and self.">
-      اكتشف عالم الفلسفة العميق حيث يلتقي العقل بالروح والذات.
-    </p>
-    <section class="bg-white shadow-md p-6 rounded-lg mb-8">
-      <h3 class="text-2xl font-semibold text-[#a1864a] mb-4" data-lang-ar="من نحن؟" data-lang-en="Who are we?">من نحن؟</h3>
-      <p class="text-base text-[#333] leading-relaxed" data-lang-ar="عقل صوفيا هو مشروع فكري يهدف إلى جمع الفلسفة وطرحها بلغة معاصرة وروح حرة." data-lang-en="Sophia Mind is a philosophical project aiming to present philosophy in a contemporary language with a free spirit.">
-        عقل صوفيا هو مشروع فكري يهدف إلى جمع الفلسفة وطرحها بلغة معاصرة وروح حرة.
-      </p>
-    </section>
-  </main>  <!-- Footer -->  <footer class="bg-[#c2a46e] text-white text-center py-4 mt-10">
-    جميع الحقوق محفوظة © 2025 عقل صوفيا
-  </footer>  <!-- Script: Menu toggle + Language toggle -->  <script>
-    const menu = document.getElementById('menu');
-    const menuToggle = document.getElementById('menuToggle');
-    const closeMenu = document.getElementById('closeMenu');
-    const langToggleBtn = document.getElementById('langToggleBtn');
+<body class="bg-[#fdfaf5] text-[#222]"><!-- Header --><header class="bg-white shadow p-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
+  <button id="menu-btn" class="text-2xl text-[#222] focus:outline-none">☰</button>
+</header><!-- Side Menu --><div id="side-menu" class="fixed top-0 right-0 w-64 h-full z-50 hidden menu-overlay shadow-lg transition-transform duration-300">
+  <div class="flex justify-between items-center p-4 border-b">
+    <h2 class="text-lg font-semibold text-[#222]">القائمة</h2>
+    <button id="close-menu" class="text-2xl font-bold text-black">×</button>
+  </div>
+  <ul class="p-4 space-y-4 text-sm">
+    <li><a href="index.html" class="text-[#222] hover:text-[#c2a46e]">الرئيسية</a></li>
+    <li><a href="library.html" class="text-[#222] hover:text-[#c2a46e]">المكتبة</a></li>
+    <li><a href="privacy.html" class="text-[#222] hover:text-[#c2a46e]">سياسة الخصوصية</a></li>
+    <li class="relative group">
+      <span class="text-[#222] cursor-pointer group-hover:text-[#c2a46e]">الفلاسفة</span>
+      <ul class="pl-4 mt-2 hidden group-hover:block">
+        <li><a href="nietzsche.html" class="text-[#444] hover:text-[#c2a46e]">نيتشه</a></li>
+        <!-- أضف المزيد من الفلاسفة هنا -->
+      </ul>
+    </li>
+    <li>
+      <button id="lang-toggle" class="text-[#444] hover:text-[#c2a46e]">تغيير اللغة</button>
+    </li>
+  </ul>
+</div><!-- Main Content --><main class="p-6 max-w-4xl mx-auto">
+  <section class="text-center py-10">
+    <h2 class="text-2xl font-bold mb-4">مرحبا بك في عقل صوفيا</h2>
+    <p id="quote" class="fade-in-text text-[#444] text-lg">"الفلسفة هي الحنين إلى الوطن الذي لا يُرى."</p>
+  </section>
+</main><!-- Footer --><footer class="bg-[#f5f5dc] text-center p-4 mt-10 text-sm text-[#444]">
+  &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة
+</footer><!-- Menu Script --><script>
+  const menuBtn = document.getElementById('menu-btn');
+  const sideMenu = document.getElementById('side-menu');
+  const closeMenu = document.getElementById('close-menu');
 
-    menuToggle.addEventListener('click', () => {
-      menu.classList.remove('menu-closed');
-      menu.classList.add('menu-open');
-    });
+  menuBtn.onclick = () => {
+    sideMenu.classList.remove('hidden');
+  }
 
-    closeMenu.addEventListener('click', () => {
-      menu.classList.remove('menu-open');
-      menu.classList.add('menu-closed');
-    });
+  closeMenu.onclick = () => {
+    sideMenu.classList.add('hidden');
+  }
 
-    function toggleLang() {
-      const elements = document.querySelectorAll('[data-lang-ar]');
-      const isArabic = document.documentElement.lang === 'ar';
-      document.documentElement.lang = isArabic ? 'en' : 'ar';
-      document.documentElement.dir = isArabic ? 'ltr' : 'rtl';
-      langToggleBtn.textContent = isArabic ? 'AR' : 'EN';
+  // اقتباسات متغيرة
+  const quotes = [
+    '"الفلسفة هي الحنين إلى الوطن الذي لا يُرى."',
+    '"من يفكر بعمق يحزن بعمق."',
+    '"الفكر العظيم يولد في العزلة."'
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % quotes.length;
+    document.getElementById('quote').textContent = quotes[i];
+  }, 5000);
 
-      elements.forEach(el => {
-        el.textContent = isArabic ? el.dataset.langEn : el.dataset.langAr;
-      });
-    }
-  </script>  <!-- Tawk.to Chat -->  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script></body>
+  // زر اللغة
+  document.getElementById('lang-toggle').onclick = () => {
+    alert('سيتم دعم تغيير اللغة لاحقاً.');
+  }
+</script><!--Start of Tawk.to Script--><script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function () {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script><!--End of Tawk.to Script--></body>
 </html>
