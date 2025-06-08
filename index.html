@@ -1,80 +1,69 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>عقل صوفيا</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .menu-open { display: block; }
+    .menu-closed { display: none; }
+  </style>
 </head>
-<body id="body" class="bg-[#fdfaf5] text-[#222] transition-colors duration-300">
-
-  <!-- Navbar -->
-  <header class="bg-[#c2a46e] text-white shadow-md">
+<body class="bg-[#fdfaf5] text-[#222]">  <!-- Navbar -->  <header class="bg-[#c2a46e] text-white shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
       <h1 class="text-xl font-bold">عقل صوفيا</h1>
-      <nav class="flex items-center space-x-4 space-x-reverse">
-        <a href="index.html" class="hover:underline">الرئيسية</a>
-        <a href="library.html" class="hover:underline">المكتبة</a>
-
-        <!-- قائمة الفلاسفة المنسدلة -->
-        <div class="relative group">
-          <button class="hover:underline">الفلاسفة</button>
-          <div class="absolute right-0 hidden group-hover:block bg-white text-black shadow-lg rounded mt-1 z-10">
-            <a href="nietzsche.html" class="block px-4 py-2 hover:bg-gray-200">نيتشه</a>
-            <!-- أضف فلاسفة آخرين هنا -->
-          </div>
-        </div>
-
-        <a href="blood.html" class="hover:underline">صفحة الدم</a>
-        <a href="privacy.html" class="hover:underline">الخصوصية</a>
-
-        <button onclick="toggleTheme()" id="themeToggleBtn" class="ml-3">🌙</button>
-        <button onclick="toggleLang()" id="langToggleBtn" class="ml-2">EN</button>
-      </nav>
+      <button id="menuToggle" class="text-3xl focus:outline-none">☰</button>
     </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="max-w-4xl mx-auto px-6 py-10">
+    <div id="menu" class="menu-closed fixed top-0 right-0 w-2/3 h-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-50 transition-all">
+      <div class="p-6">
+        <button id="closeMenu" class="text-xl font-bold mb-4">✕</button>
+        <nav class="flex flex-col space-y-4 text-black">
+          <a href="index.html" class="hover:underline">الرئيسية</a>
+          <a href="library.html" class="hover:underline">المكتبة</a>
+          <div class="relative">
+            <span class="font-bold">الفلاسفة</span>
+            <div class="ml-4 mt-2 space-y-2">
+              <a href="nietzsche.html" class="block hover:underline">نيتشه</a>
+              <!-- أضف المزيد لاحقًا -->
+            </div>
+          </div>
+          <a href="blood.html" class="hover:underline">صفحة الدم</a>
+          <a href="privacy.html" class="hover:underline">الخصوصية</a>
+          <button onclick="toggleLang()" id="langToggleBtn">EN</button>
+        </nav>
+      </div>
+    </div>
+  </header>  <!-- Main Content -->  <main class="max-w-4xl mx-auto px-6 py-10">
     <h2 class="text-3xl font-bold text-[#a1864a] mb-6" data-lang-ar="مرحبًا بك في عقل صوفيا" data-lang-en="Welcome to Sophia Mind">
       مرحبًا بك في عقل صوفيا
     </h2>
     <p class="text-lg text-[#444] leading-relaxed mb-6" data-lang-ar="اكتشف عالم الفلسفة العميق حيث يلتقي العقل بالروح والذات." data-lang-en="Explore the deep world of philosophy, where mind meets soul and self.">
       اكتشف عالم الفلسفة العميق حيث يلتقي العقل بالروح والذات.
     </p>
-
-    <section class="bg-white shadow-md p-6 rounded-lg mb-8 dark:bg-[#2b2b2b]">
+    <section class="bg-white shadow-md p-6 rounded-lg mb-8">
       <h3 class="text-2xl font-semibold text-[#a1864a] mb-4" data-lang-ar="من نحن؟" data-lang-en="Who are we?">من نحن؟</h3>
       <p class="text-base text-[#333] leading-relaxed" data-lang-ar="عقل صوفيا هو مشروع فكري يهدف إلى جمع الفلسفة وطرحها بلغة معاصرة وروح حرة." data-lang-en="Sophia Mind is a philosophical project aiming to present philosophy in a contemporary language with a free spirit.">
         عقل صوفيا هو مشروع فكري يهدف إلى جمع الفلسفة وطرحها بلغة معاصرة وروح حرة.
       </p>
     </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-[#c2a46e] text-white text-center py-4 mt-10">
+  </main>  <!-- Footer -->  <footer class="bg-[#c2a46e] text-white text-center py-4 mt-10">
     جميع الحقوق محفوظة © 2025 عقل صوفيا
-  </footer>
-
-  <!-- Script: Theme toggle + Language toggle -->
-  <script>
-    const body = document.getElementById('body');
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
+  </footer>  <!-- Script: Menu toggle + Language toggle -->  <script>
+    const menu = document.getElementById('menu');
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
     const langToggleBtn = document.getElementById('langToggleBtn');
 
-    function toggleTheme() {
-      const isDark = body.classList.contains('bg-[#222]');
-      if (isDark) {
-        body.classList.remove('bg-[#222]', 'text-[#ddd]');
-        body.classList.add('bg-[#fdfaf5]', 'text-[#222]');
-        themeToggleBtn.textContent = '🌙';
-      } else {
-        body.classList.remove('bg-[#fdfaf5]', 'text-[#222]');
-        body.classList.add('bg-[#222]', 'text-[#ddd]');
-        themeToggleBtn.textContent = '☀️';
-      }
-    }
+    menuToggle.addEventListener('click', () => {
+      menu.classList.remove('menu-closed');
+      menu.classList.add('menu-open');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      menu.classList.remove('menu-open');
+      menu.classList.add('menu-closed');
+    });
 
     function toggleLang() {
       const elements = document.querySelectorAll('[data-lang-ar]');
@@ -87,10 +76,7 @@
         el.textContent = isArabic ? el.dataset.langEn : el.dataset.langAr;
       });
     }
-  </script>
-
-  <!-- Tawk.to Chat -->
-  <script type="text/javascript">
+  </script>  <!-- Tawk.to Chat -->  <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function () {
       var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -100,7 +86,5 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
-  </script>
-
-</body>
+  </script></body>
 </html>
