@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>anarchides - فلاسفة</title>
   <style>
     body {
@@ -11,12 +12,13 @@
     }
 
     header {
-      background-color: #000; /* شريط علوي أسود */
+      background-color: #000;
       color: white;
       padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -32,27 +34,37 @@
       color: #333;
     }
 
-    .philosophers {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+    section {
       padding: 20px;
     }
 
+    .period-title {
+      font-size: 24px;
+      margin: 20px 0 10px;
+      color: #111;
+      text-align: right;
+      border-right: 5px solid black;
+      padding-right: 10px;
+    }
+
+    .philosophers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
     .philosopher-card {
-      background-color: #000; /* خلفية سوداء للبطاقات */
+      background-color: #000;
       color: white;
-      width: 200px;
-      text-align: center;
       border-radius: 8px;
       overflow: hidden;
+      text-align: center;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     .philosopher-card img {
       width: 100%;
-      height: 250px;
+      height: 220px;
       object-fit: cover;
     }
 
@@ -62,6 +74,17 @@
       text-align: center;
       padding: 20px 10px;
       margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -82,30 +105,91 @@
     # كل ما نسمع رأي وليس حقيقة، وكل ما نرى هو وجهة نظر وليس واقع - ماركوس أوريليوس
   </div>
 
-  <section class="philosophers">
-    <div class="philosopher-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Socrates_Louvre.jpg" alt="سقراط">
-      <h3>سقراط</h3>
+  <!-- فلاسفة يونان -->
+  <section>
+    <div class="period-title">فلاسفة اليونان</div>
+    <div class="philosophers">
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Socrates_Louvre.jpg" alt="سقراط">
+        <h3>سقراط</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
+        <h3>أفلاطون</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Aristotle_Altemps_Inv8575.jpg" alt="أرسطو">
+        <h3>أرسطو</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Plotinos.jpg" alt="أفلوطين">
+        <h3>أفلوطين</h3>
+      </div>
     </div>
-    <div class="philosopher-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
-      <h3>أفلاطون</h3>
+  </section>
+
+  <!-- فلاسفة العصور الوسطى -->
+  <section>
+    <div class="period-title">فلاسفة العصور الوسطى</div>
+    <div class="philosophers">
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Avicenna-miniatur.jpg" alt="ابن سينا">
+        <h3>ابن سينا</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/AverroesColor.jpg" alt="ابن رشد">
+        <h3>ابن رشد</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Thomas_Aquinas_by_Fra_Bartolommeo.jpg" alt="توما الأكويني">
+        <h3>توما الأكويني</h3>
+      </div>
     </div>
-    <div class="philosopher-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Aristotle_Altemps_Inv8575.jpg" alt="أرسطو">
-      <h3>أرسطو</h3>
+  </section>
+
+  <!-- فلاسفة الحداثة -->
+  <section>
+    <div class="period-title">فلاسفة الحداثة</div>
+    <div class="philosophers">
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="ديكارت">
+        <h3>ديكارت</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Immanuel_Kant_%281724-1804%29.jpg" alt="كانط">
+        <h3>كانط</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/JohnLocke.png" alt="جون لوك">
+        <h3>جون لوك</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/David_Hume.jpg" alt="ديفيد هيوم">
+        <h3>ديفيد هيوم</h3>
+      </div>
     </div>
-    <div class="philosopher-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="ديكارت">
-      <h3>ديكارت</h3>
-    </div>
-    <div class="philosopher-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Immanuel_Kant_%281724-1804%29.jpg" alt="كانط">
-      <h3>كانط</h3>
-    </div>
-    <div class="philosopher-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Nietzsche187a.jpg" alt="نيتشه">
-      <h3>نيتشه</h3>
+  </section>
+
+  <!-- فلاسفة معاصرون -->
+  <section>
+    <div class="period-title">فلاسفة معاصرون</div>
+    <div class="philosophers">
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Nietzsche187a.jpg" alt="نيتشه">
+        <h3>نيتشه</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Heidegger.jpg" alt="هايدغر">
+        <h3>هايدغر</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Jean_Paul_Sartre_FP.jpg" alt="سارتر">
+        <h3>سارتر</h3>
+      </div>
+      <div class="philosopher-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Michel_Foucault_2.jpg" alt="ميشيل فوكو">
+        <h3>فوكو</h3>
+      </div>
     </div>
   </section>
 
