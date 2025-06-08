@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>anarchides – الموقع الفلسفي</title>
   <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,19 +19,9 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Amiri', serif;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    a {
-      transition: color 0.3s;
     }
   </style>
   <script>
-    // تطبيق الثيم عند تحميل الصفحة
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
     function toggleTheme() {
       const html = document.documentElement;
       if (html.getAttribute('data-theme') === 'dark') {
@@ -41,6 +31,9 @@
         html.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
       }
+    }
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
   </script>
 </head>
@@ -52,8 +45,6 @@
       <a href="index.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">الرئيسية</a>
       <a href="nietzsche.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">نيتشه</a>
       <a href="library.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">مكتبة الكتب</a>
-      <a href="privacy.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">سياسة الخصوصية</a>
-      <a href="support.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">الدعم</a>
       <button onclick="toggleTheme()" class="bg-[#c2a46e] text-white px-2 py-1 rounded">☀️ / 🌙</button>
     </nav>
   </header>
@@ -79,17 +70,19 @@
     &copy; 2025 anarchides – جميع الحقوق محفوظة
   </footer>
 
-  <!-- Tawk.to Chat Script -->
+  <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
       s1.async=true;
-      s1.src='https://embed.tawk.to/684577ecf127ba190c50be75/1hvjv67r9';
+      s1.src='https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
       s1.charset='UTF-8';
       s1.setAttribute('crossorigin','*');
       s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
+  <!--End of Tawk.to Script-->
+
 </body>
 </html>
