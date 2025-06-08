@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>anarchides - فلاسفة</title>
+  <title>anarchides - الفلاسفة</title>
   <style>
     body {
       margin: 0;
@@ -21,10 +21,20 @@
       flex-wrap: wrap;
     }
 
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 10px;
     }
 
     .quote {
@@ -34,12 +44,25 @@
       color: #333;
     }
 
-    section {
-      padding: 20px;
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filters button {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
     }
 
     .period-title {
-      font-size: 24px;
+      font-size: 22px;
       margin: 20px 0 10px;
       color: #111;
       text-align: right;
@@ -49,23 +72,29 @@
 
     .philosophers {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      padding: 10px 20px;
     }
 
     .philosopher-card {
       background-color: #000;
       color: white;
-      border-radius: 8px;
-      overflow: hidden;
       text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      border-radius: 6px;
+      padding: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    .philosopher-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
+    .philosopher-card:hover {
+      background-color: #222;
+    }
+
+    .philosopher-card a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     footer {
@@ -76,14 +105,25 @@
       margin-top: 40px;
     }
 
-    @media (max-width: 600px) {
-      header {
+    @media (max-width: 768px) {
+      nav {
+        display: none;
         flex-direction: column;
-        align-items: flex-start;
+        width: 100%;
+        background-color: #000;
+        padding: 10px;
       }
 
-      nav {
-        margin-top: 10px;
+      nav a {
+        padding: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav.active {
+        display: flex;
       }
     }
   </style>
@@ -91,8 +131,8 @@
 <body>
 
   <header>
-    <div>☰</div>
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="navMenu">
       <a href="#">الرئيسية</a>
       <a href="#">الفلاسفة</a>
       <a href="#">سياسة الخصوصية</a>
@@ -105,90 +145,44 @@
     # كل ما نسمع رأي وليس حقيقة، وكل ما نرى هو وجهة نظر وليس واقع - ماركوس أوريليوس
   </div>
 
-  <!-- فلاسفة يونان -->
-  <section>
-    <div class="period-title">فلاسفة اليونان</div>
-    <div class="philosophers">
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Socrates_Louvre.jpg" alt="سقراط">
-        <h3>سقراط</h3>
-      </div>
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
-        <h3>أفلاطون</h3>
-      </div>
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Aristotle_Altemps_Inv8575.jpg" alt="أرسطو">
-        <h3>أرسطو</h3>
-      </div>
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Plotinos.jpg" alt="أفلوطين">
-        <h3>أفلوطين</h3>
-      </div>
-    </div>
-  </section>
+  <!-- الفلاتر: مدارس فلسفية -->
+  <div class="filters">
+    <button onclick="filterPhilosophers('all')">الكل</button>
+    <button onclick="filterPhilosophers('existentialism')">الوجودية</button>
+    <button onclick="filterPhilosophers('nihilism')">العدمية</button>
+    <button onclick="filterPhilosophers('stoicism')">الرواقية</button>
+  </div>
 
-  <!-- فلاسفة العصور الوسطى -->
+  <!-- فلاسفة -->
   <section>
-    <div class="period-title">فلاسفة العصور الوسطى</div>
-    <div class="philosophers">
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Avicenna-miniatur.jpg" alt="ابن سينا">
-        <h3>ابن سينا</h3>
+    <div class="period-title">الفلاسفة</div>
+    <div class="philosophers" id="philosopherList">
+      <div class="philosopher-card existentialism">
+        <a href="sartre.html">جان بول سارتر</a>
+      </div>
+      <div class="philosopher-card existentialism">
+        <a href="heidegger.html">هايدغر</a>
+      </div>
+      <div class="philosopher-card nihilism">
+        <a href="nietzsche.html">نيتشه</a>
+      </div>
+      <div class="philosopher-card stoicism">
+        <a href="marcus.html">ماركوس أوريليوس</a>
+      </div>
+      <div class="philosopher-card stoicism">
+        <a href="seneca.html">سينيكا</a>
       </div>
       <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/AverroesColor.jpg" alt="ابن رشد">
-        <h3>ابن رشد</h3>
+        <a href="plato.html">أفلاطون</a>
       </div>
       <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Thomas_Aquinas_by_Fra_Bartolommeo.jpg" alt="توما الأكويني">
-        <h3>توما الأكويني</h3>
-      </div>
-    </div>
-  </section>
-
-  <!-- فلاسفة الحداثة -->
-  <section>
-    <div class="period-title">فلاسفة الحداثة</div>
-    <div class="philosophers">
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="ديكارت">
-        <h3>ديكارت</h3>
+        <a href="aristotle.html">أرسطو</a>
       </div>
       <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Immanuel_Kant_%281724-1804%29.jpg" alt="كانط">
-        <h3>كانط</h3>
+        <a href="descartes.html">ديكارت</a>
       </div>
       <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/JohnLocke.png" alt="جون لوك">
-        <h3>جون لوك</h3>
-      </div>
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/David_Hume.jpg" alt="ديفيد هيوم">
-        <h3>ديفيد هيوم</h3>
-      </div>
-    </div>
-  </section>
-
-  <!-- فلاسفة معاصرون -->
-  <section>
-    <div class="period-title">فلاسفة معاصرون</div>
-    <div class="philosophers">
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Nietzsche187a.jpg" alt="نيتشه">
-        <h3>نيتشه</h3>
-      </div>
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Heidegger.jpg" alt="هايدغر">
-        <h3>هايدغر</h3>
-      </div>
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Jean_Paul_Sartre_FP.jpg" alt="سارتر">
-        <h3>سارتر</h3>
-      </div>
-      <div class="philosopher-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Michel_Foucault_2.jpg" alt="ميشيل فوكو">
-        <h3>فوكو</h3>
+        <a href="kant.html">كانط</a>
       </div>
     </div>
   </section>
@@ -196,6 +190,28 @@
   <footer>
     © 2025 anarchides. جميع الحقوق محفوظة.
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navMenu");
+      menu.classList.toggle("active");
+    }
+
+    function filterPhilosophers(school) {
+      const cards = document.querySelectorAll(".philosopher-card");
+      cards.forEach(card => {
+        if (school === 'all') {
+          card.style.display = 'block';
+        } else {
+          if (card.classList.contains(school)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
