@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,172 +6,177 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5;
-      color: #111;
-    }
+      font-family: 'Cairo', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: white;
-      padding: 10px 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 10;
-    }
+.site-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
 
-    .site-name {
-      font-size: 24px;
-      font-weight: bold;
-      color: #111;
-    }
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  color: #ffffff;
+}
 
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-      user-select: none;
-    }
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  padding: 20px;
+  z-index: 20;
+}
 
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(5px);
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      transition: right 0.3s ease;
-      padding: 20px;
-      z-index: 20;
-    }
+.sidebar.active {
+  right: 0;
+}
 
-    .sidebar.active {
-      right: 0;
-    }
+.sidebar a {
+  display: block;
+  margin: 15px 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .sidebar a {
-      display: block;
-      margin: 15px 0;
-      color: #111;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.close-btn {
+  font-size: 22px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
 
-    .close-btn {
-      font-size: 22px;
-      cursor: pointer;
-      margin-bottom: 20px;
-      color: black;
-    }
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 15;
+  display: none;
+}
 
-    .overlay {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      z-index: 15;
-      display: none;
-    }
+.overlay.active {
+  display: block;
+}
 
-    .overlay.active {
-      display: block;
-    }
+.quote {
+  text-align: center;
+  margin: 50px 20px;
+  font-size: 24px;
+  font-style: italic;
+  animation: fadeIn 3s ease infinite alternate;
+}
 
-    .quote {
-      text-align: center;
-      margin: 50px 20px;
-      font-size: 24px;
-      font-style: italic;
-      animation: fadeIn 3s ease infinite alternate;
-    }
+@keyframes fadeIn {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0.5; }
-      to { opacity: 1; }
-    }
+.philosophers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+}
 
-    .philosophers {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 30px;
-    }
+.philosopher {
+  text-align: center;
+  width: 150px;
+}
 
-    .philosopher {
-      text-align: center;
-      width: 150px;
-    }
+.philosopher img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+}
 
-    .philosopher img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    }
+.philosopher-name {
+  margin-top: 10px;
+  font-weight: bold;
+}
 
-    .philosopher-name {
-      margin-top: 10px;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
   <header>
     <div class="site-name">Anarchides</div>
     <div class="menu-icon" onclick="toggleSidebar()">☰</div>
-  </header>
-
-  <div class="sidebar" id="sidebar">
+  </header>  <div class="sidebar" id="sidebar">
     <div class="close-btn" onclick="toggleSidebar()">✖</div>
     <a href="index.html">الرئيسية</a>
     <a href="library.html">المكتبة</a>
-    <a href="blood.html">صفحة الدم</a>
+    <a href="blood.html">صفحة الدعم</a>
     <a href="privacy.html">سياسة الخصوصية</a>
     <a href="#">الفلاسفة</a>
-    <a href="nietzsche.html" style="margin-right: 10px;">- نيتشه</a>
-    <!-- Add more philosophers here -->
+    <a href="nietzsche.html">- نيتشه</a>
+    <a href="socrates.html">- سقراط</a>
+    <a href="plato.html">- أفلاطون</a>
+    <a href="descartes.html">- ديكارت</a>
+    <a href="kant.html">- كانط</a>
+  </div>  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>  <main>
+    <div class="quote">"لا أريد ان اموت بل اريد ان أحلم" – anarchides</div><section class="philosophers">
+  <div class="philosopher">
+    <a href="nietzsche.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" alt="نيتشه">
+      <div class="philosopher-name">نيتشه</div>
+    </a>
   </div>
+  <div class="philosopher">
+    <a href="socrates.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Socrate_du_Louvre.jpg" alt="سقراط">
+      <div class="philosopher-name">سقراط</div>
+    </a>
+  </div>
+  <div class="philosopher">
+    <a href="plato.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
+      <div class="philosopher-name">أفلاطون</div>
+    </a>
+  </div>
+  <div class="philosopher">
+    <a href="descartes.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="ديكارت">
+      <div class="philosopher-name">ديكارت</div>
+    </a>
+  </div>
+  <div class="philosopher">
+    <a href="kant.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Immanuel_Kant_%28portrait%29.jpg" alt="كانط">
+      <div class="philosopher-name">كانط</div>
+    </a>
+  </div>
+</section>
 
-  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
-  <main>
-    <div class="quote">"من ينظر طويلًا إلى الهاوية، تنظر إليه الهاوية أيضًا" – نيتشه</div>
-
-    <section class="philosophers">
-      <div class="philosopher">
-        <a href="nietzsche.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" alt="نيتشه">
-          <div class="philosopher-name">نيتشه</div>
-        </a>
-      </div>
-      <div class="philosopher">
-        <a href="#">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Socrate_du_Louvre.jpg" alt="سقراط">
-          <div class="philosopher-name">سقراط (قريبًا)</div>
-        </a>
-      </div>
-      <div class="philosopher">
-        <a href="#">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
-          <div class="philosopher-name">أفلاطون (قريبًا)</div>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <script>
+  </main>  <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
       const overlay = document.getElementById("overlay");
       sidebar.classList.toggle("active");
       overlay.classList.toggle("active");
     }
-  </script>
-</body>
+  </script></body>
 </html>
