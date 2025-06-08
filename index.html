@@ -1,163 +1,117 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>anarchides</title>
+  <meta charset="UTF-8">
+  <title>anarchides - فلاسفة</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
-      color: #000000;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
     }
+
     header {
+      background-color: #000; /* شريط علوي أسود */
+      color: white;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 1.5rem;
-      background-color: #f5f5f5;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    .menu-toggle {
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 250px;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-      padding: 2rem 1rem;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      z-index: 1001;
-    }
-    .sidebar.open {
-      transform: translateX(0);
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
-      display: none;
-      z-index: 1000;
-    }
-    .overlay.show {
-      display: block;
-    }
-    .hero {
-      padding: 2rem;
-      text-align: center;
-      background-color: #ffffff;
-    }
-    .hero h1 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #333333;
-    }
-    .philosophers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
-      background-color: #ffffff;
-    }
-    .card {
-      background-color: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 0.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      background-color: #f5f5f5;
-      margin-top: 2rem;
-    }
-    a {
+
+    nav a {
+      color: white;
       text-decoration: none;
-      color: #000;
+      margin: 0 10px;
+    }
+
+    .quote {
+      text-align: center;
+      font-style: italic;
+      margin: 30px 10px;
+      color: #333;
+    }
+
+    .philosophers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .philosopher-card {
+      background-color: #000; /* خلفية سوداء للبطاقات */
+      color: white;
+      width: 200px;
+      text-align: center;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .philosopher-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
+
   <header>
-    <div class="logo">anarchides</div>
-    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <div>☰</div>
+    <nav>
+      <a href="#">الرئيسية</a>
+      <a href="#">الفلاسفة</a>
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">الدعم</a>
+    </nav>
+    <div>anarchides</div>
   </header>
-  <nav class="sidebar" id="sidebar">
-    <a href="index.html">الرئيسية</a>
-    <a href="#">الفلاسفة</a>
-    <a href="#">سياسة الخصوصية</a>
-    <a href="#">الدعم</a>
-  </nav>  <section class="hero">
-    <h1>كل ما نسمع رأي وليس حقيقة، وكل ما نرى هو وجهة نظر وليس واقع - ماركوس أوريليوس</h1>
-  </section>  <section class="philosophers">
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Socrates_Louvre.jpg" alt="سقراط">
-      <div>سقراط</div>
+
+  <div class="quote">
+    # كل ما نسمع رأي وليس حقيقة، وكل ما نرى هو وجهة نظر وليس واقع - ماركوس أوريليوس
+  </div>
+
+  <section class="philosophers">
+    <div class="philosopher-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Socrates_Louvre.jpg" alt="سقراط">
+      <h3>سقراط</h3>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
-      <div>أفلاطون</div>
+    <div class="philosopher-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
+      <h3>أفلاطون</h3>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Aristotle_Altemps_Inv8575.jpg" alt="أرسطو">
-      <div>أرسطو</div>
+    <div class="philosopher-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Aristotle_Altemps_Inv8575.jpg" alt="أرسطو">
+      <h3>أرسطو</h3>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Raphael_-_Detail_of_Descartes.jpg" alt="ديكارت">
-      <div>ديكارت</div>
+    <div class="philosopher-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="ديكارت">
+      <h3>ديكارت</h3>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Kant_gemaelde_3.jpg" alt="كانط">
-      <div>كانط</div>
+    <div class="philosopher-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Immanuel_Kant_%281724-1804%29.jpg" alt="كانط">
+      <h3>كانط</h3>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Nietzsche1882.jpg" alt="نيتشه">
-      <div>نيتشه</div>
+    <div class="philosopher-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Nietzsche187a.jpg" alt="نيتشه">
+      <h3>نيتشه</h3>
     </div>
-  </section>  <footer>
-    &copy; 2025 anarchides. جميع الحقوق محفوظة.
-  </footer>  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('show');
-    }
-    document.getElementById('overlay').addEventListener('click', toggleSidebar);
-  </script></body>
+  </section>
+
+  <footer>
+    © 2025 anarchides. جميع الحقوق محفوظة.
+  </footer>
+
+</body>
 </html>
