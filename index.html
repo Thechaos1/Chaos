@@ -1,182 +1,158 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-<head>
+<!DOCTYPE html><html lang="ar"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anarchides</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Cairo', sans-serif;
-      background-color: #121212;
-      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      color: #fff;
     }header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e1e1e;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-  position: relative;
+  padding: 1rem;
+  background-color: #000;
+  position: fixed;
+  width: 100%;
   z-index: 10;
 }
 
-.site-name {
-  font-size: 24px;
+.site-title {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #ffffff;
 }
 
-.menu-icon {
-  font-size: 24px;
+.menu-toggle {
+  font-size: 1.5rem;
   cursor: pointer;
-  user-select: none;
-  color: #ffffff;
+  background: none;
+  border: none;
+  color: white;
 }
 
-.sidebar {
+nav {
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: 0;
   height: 100%;
-  background-color: rgba(30, 30, 30, 0.95);
-  backdrop-filter: blur(5px);
-  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-  transition: right 0.3s ease;
-  padding: 20px;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.95);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
   z-index: 20;
 }
 
-.sidebar.active {
-  right: 0;
+nav.open {
+  transform: translateX(0);
 }
 
-.sidebar a {
-  display: block;
-  margin: 15px 0;
-  color: #ffffff;
+nav a {
+  padding: 1rem;
+  color: white;
   text-decoration: none;
-  font-weight: bold;
-}
-
-.close-btn {
-  font-size: 22px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  color: #ffffff;
+  border-bottom: 1px solid #333;
 }
 
 .overlay {
   position: fixed;
   top: 0;
-  right: 0;
   left: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 15;
   display: none;
+  z-index: 15;
 }
 
-.overlay.active {
+.overlay.show {
   display: block;
 }
 
-.quote {
+main {
+  padding-top: 80px;
   text-align: center;
-  margin: 50px 20px;
-  font-size: 24px;
-  font-style: italic;
-  animation: fadeIn 3s ease infinite alternate;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0.5; }
-  to { opacity: 1; }
+.quotes {
+  font-size: 1.2rem;
+  animation: fade 5s infinite;
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .philosophers {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 30px;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .philosopher {
-  text-align: center;
-  width: 150px;
-}
-
-.philosopher img {
-  width: 100%;
-  height: auto;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #222;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+  width: 150px;
+  transition: transform 0.2s;
 }
 
-.philosopher-name {
-  margin-top: 10px;
+.philosopher:hover {
+  transform: scale(1.05);
+}
+
+.philosopher a {
+  color: white;
+  text-decoration: none;
   font-weight: bold;
 }
 
   </style>
-</head>
-<body>
+</head><body>
+  <div class="overlay" id="overlay"></div>
   <header>
-    <div class="site-name">Anarchides</div>
-    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
-  </header>  <div class="sidebar" id="sidebar">
-    <div class="close-btn" onclick="toggleSidebar()">✖</div>
+    <div class="site-title">Anarchides</div>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </header>  <nav id="sidebar">
     <a href="index.html">الرئيسية</a>
+    <a href="philosophers.html">الفلاسفة</a>
+    <a href="nietzsche.html">نيتشه</a>
     <a href="library.html">المكتبة</a>
-    <a href="blood.html">صفحة الدعم</a>
+    <a href="about.html">حول</a>
+    <a href="support.html">الدعم</a>
     <a href="privacy.html">سياسة الخصوصية</a>
-    <a href="#">الفلاسفة</a>
-    <a href="nietzsche.html">- نيتشه</a>
-    <a href="socrates.html">- سقراط</a>
-    <a href="plato.html">- أفلاطون</a>
-    <a href="descartes.html">- ديكارت</a>
-    <a href="kant.html">- كانط</a>
-  </div>  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>  <main>
-    <div class="quote">"لا أريد ان اموت بل اريد ان أحلم" – anarchides</div><section class="philosophers">
-  <div class="philosopher">
-    <a href="nietzsche.html">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" alt="نيتشه">
-      <div class="philosopher-name">نيتشه</div>
-    </a>
-  </div>
-  <div class="philosopher">
-    <a href="socrates.html">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Socrate_du_Louvre.jpg" alt="سقراط">
-      <div class="philosopher-name">سقراط</div>
-    </a>
-  </div>
-  <div class="philosopher">
-    <a href="plato.html">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Plato_Pio-Clementino_Inv305.jpg" alt="أفلاطون">
-      <div class="philosopher-name">أفلاطون</div>
-    </a>
-  </div>
-  <div class="philosopher">
-    <a href="descartes.html">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="ديكارت">
-      <div class="philosopher-name">ديكارت</div>
-    </a>
-  </div>
-  <div class="philosopher">
-    <a href="kant.html">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Immanuel_Kant_%28portrait%29.jpg" alt="كانط">
-      <div class="philosopher-name">كانط</div>
-    </a>
-  </div>
+  </nav>  <main>
+    <div class="quotes">"من لديه سبب للعيش يمكنه تحمل أي كيف." – نيتشه</div><section class="philosophers">
+  <div class="philosopher"><a href="nietzsche.html">نيتشه</a></div>
+  <div class="philosopher"><a href="#">سقراط</a></div>
+  <div class="philosopher"><a href="#">أفلاطون</a></div>
+  <div class="philosopher"><a href="#">كانط</a></div>
+  <div class="philosopher"><a href="#">ديكارت</a></div>
 </section>
 
   </main>  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      const overlay = document.getElementById("overlay");
-      sidebar.classList.toggle("active");
-      overlay.classList.toggle("active");
-    }
-  </script></body>
-</html>
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+  </script></body></html>
