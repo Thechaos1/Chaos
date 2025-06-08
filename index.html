@@ -1,88 +1,79 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>anarchides – الموقع الفلسفي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عقل صوفيا – الصفحة الرئيسية</title>
+  <meta name="description" content="موقع عقل صوفيا يقدم محتوى فلسفي مميز يشمل مقالات، كتب، وسير الفلاسفة." />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --bg: #fdfaf5;
-      --text: #222;
-    }
-    [data-theme="dark"] {
-      --bg: #1f1f1f;
-      --text: #f9f9f9;
-    }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Amiri', serif;
-    }
+    body { font-family: 'Amiri', serif; }
+    .dropdown:hover .dropdown-menu { display: block; }
   </style>
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    }
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  </script>
 </head>
-<body>
-  <!-- Header -->
-  <header class="bg-white dark:bg-[#2a2a2a] shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-[#c2a46e]">anarchides</h1>
-    <nav class="space-x-4 space-x-reverse text-sm">
-      <a href="index.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">الرئيسية</a>
-      <a href="nietzsche.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">نيتشه</a>
-      <a href="library.html" class="text-[#222] dark:text-[#f9f9f9] hover:text-[#c2a46e]">مكتبة الكتب</a>
-      <button onclick="toggleTheme()" class="bg-[#c2a46e] text-white px-2 py-1 rounded">☀️ / 🌙</button>
-    </nav>
-  </header>
+<body class="bg-[#fdfaf5] text-[#222]">
 
-  <!-- Main Content -->
-  <main class="p-6 max-w-3xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-4">مرحبًا بك في anarchides 🧠</h2>
-    <p class="text-lg leading-loose">منصة فلسفية تحتوي على مقالات، شذرات، فلاسفة، روابط كتب، ونقاشات تفاعلية تهدف لإثراء العقل والفكر.</p>
-    <div class="grid md:grid-cols-2 gap-6 mt-10">
-      <a href="nietzsche.html" class="block bg-white dark:bg-[#333] rounded shadow p-4 hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-[#c2a46e] mb-2">🔹 فريدريك نيتشه</h3>
-        <p class="text-sm text-gray-700 dark:text-gray-300">تعرف على الفيلسوف الألماني وأشهر شذراته وأفكاره.</p>
-      </a>
-      <a href="library.html" class="block bg-white dark:bg-[#333] rounded shadow p-4 hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-[#c2a46e] mb-2">📚 مكتبة الكتب الفلسفية</h3>
-        <p class="text-sm text-gray-700 dark:text-gray-300">اكتشف كتب فلسفية بصيغة PDF مصنفة حسب المدارس والمذاهب.</p>
-      </a>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-[#f5f5dc] dark:bg-[#111] text-center p-4 mt-10 text-sm text-[#444] dark:text-gray-400">
-    &copy; 2025 anarchides – جميع الحقوق محفوظة
-  </footer>
-
-  <!--Start of Tawk.to Script-->
+  <!-- Chat Script -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
-  <!--End of Tawk.to Script-->
+
+  <!-- Navigation Bar -->
+  <header class="bg-white shadow p-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
+      <nav class="flex items-center gap-6 text-sm">
+        <a href="index.html" class="hover:text-[#c2a46e]">الرئيسية</a>
+        <div class="relative dropdown">
+          <span class="cursor-pointer hover:text-[#c2a46e]">الفلاسفة</span>
+          <ul class="absolute dropdown-menu hidden bg-white shadow rounded mt-2 w-40 text-right z-10">
+            <li><a href="nietzsche.html" class="block px-4 py-2 hover:bg-gray-100">نيتشه</a></li>
+            <!-- أضف فلاسفة آخرين هنا -->
+          </ul>
+        </div>
+        <a href="library.html" class="hover:text-[#c2a46e]">المكتبة</a>
+        <a href="support.html" class="hover:text-[#c2a46e]">الدعم</a>
+        <a href="privacy.html" class="hover:text-[#c2a46e]">سياسة الخصوصية</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center p-10 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-[#c2a46e] mb-4">مرحبًا بك في عالم الفلسفة</h2>
+    <p class="text-lg text-gray-700">استكشف أفكار الفلاسفة، اقرأ كتبهم، واغمر نفسك في التأمل الفلسفي العميق.</p>
+  </section>
+
+  <!-- Featured Books or Philosophers -->
+  <section class="p-6 max-w-5xl mx-auto">
+    <h3 class="text-xl font-semibold mb-4 border-b pb-2">📚 كتب مختارة</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-semibold">هكذا تكلم زرادشت – نيتشه</h4>
+        <p class="text-gray-600">رحلة رمزية عميقة نحو فهم الإنسان الأعلى.</p>
+        <a href="#" class="text-[#c2a46e]">تحميل PDF</a>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-semibold">الوجود والعدم – سارتر</h4>
+        <p class="text-gray-600">عمل وجودي جوهري حول الحرية والوعي والذات.</p>
+        <a href="#" class="text-[#c2a46e]">تحميل PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#f5f5dc] text-center p-4 mt-10 text-sm text-[#444]">
+    &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة
+  </footer>
 
 </body>
 </html>
