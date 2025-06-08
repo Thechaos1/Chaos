@@ -2,86 +2,58 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>فريدريك نيتشه – anarchides</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نيتشه – Anarchides</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --bg: #fdfaf5;
-      --text: #222;
-    }
-    [data-theme="dark"] {
-      --bg: #1f1f1f;
-      --text: #f9f9f9;
-    }
-    body {
-      font-family: 'Amiri', serif;
-      background-color: var(--bg);
-      color: var(--text);
-      transition: background-color 0.3s, color 0.3s;
-    }
-    a {
-      color: var(--link-color, #c2a46e);
-    }
+    body { font-family: 'Amiri', serif; }
+    .dropdown:hover .dropdown-menu { display: block; }
   </style>
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    });
-  </script>
 </head>
-<body>
+<body class="bg-[#fdfaf5] text-[#222]">
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
   <!-- Header -->
-  <header
-    class="bg-white dark:bg-[#2a2a2a] shadow p-4 flex justify-between items-center"
-  >
-    <h1 class="text-xl font-bold text-[#c2a46e]">anarchides</h1>
-    <nav class="space-x-4 space-x-reverse text-sm">
-      <a href="index.html" class="hover:text-[#c2a46e]">الرئيسية</a>
-      <button
-        onclick="toggleTheme()"
-        class="bg-[#c2a46e] text-white px-2 py-1 rounded"
-        aria-label="تبديل الوضع الداكن"
-      >
-        ☀️ / 🌙
-      </button>
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-[#c2a46e]">Anarchides</h1>
+    <nav class="flex items-center gap-6 text-sm">
+      <a href="index.html" class="text-[#222] hover:text-[#c2a46e]">الرئيسية</a>
+      <div class="relative dropdown">
+        <span class="cursor-pointer text-[#222] hover:text-[#c2a46e]">الفلاسفة</span>
+        <ul class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded dropdown-menu hidden text-right z-10">
+          <li><a href="nietzsche.html" class="block px-4 py-2 hover:bg-gray-100">نيتشه</a></li>
+          <!-- أضف المزيد من الفلاسفة هنا -->
+        </ul>
+      </div>
+      <a href="library.html" class="text-[#222] hover:text-[#c2a46e]">المكتبة</a>
+      <a href="privacy.html" class="text-[#222] hover:text-[#c2a46e]">سياسة الخصوصية</a>
+      <a href="support.html" class="text-[#222] hover:text-[#c2a46e]">الدعم</a>
     </nav>
   </header>
 
   <!-- Nietzsche Section -->
   <section class="p-6 max-w-4xl mx-auto">
     <div class="text-center">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg"
-        alt="نيتشه"
-        class="w-32 h-32 rounded-full mx-auto mb-4 shadow"
-      />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" alt="نيتشه" class="w-32 h-32 rounded-full mx-auto mb-4 shadow">
       <h2 class="text-2xl font-semibold">فريدريك نيتشه</h2>
-      <p class="text-sm text-gray-600 dark:text-gray-400">1844 – 1900</p>
+      <p class="text-sm text-gray-600">1844 – 1900</p>
     </div>
-
     <div class="mt-6 text-lg leading-relaxed">
-      <p>
-        فيلسوف ألماني عُرف بكتاباته العميقة التي تناولت الأخلاق، الدين، القوة،
-        والفن. اعتبر أن الحقيقة مفهوم متغير وأن الإنسان الأعلى (Übermensch) هو
-        هدف الإنسانية المتقدمة.
-      </p>
+      <p>فيلسوف ألماني عُرف بكتاباته العميقة التي تناولت الأخلاق، الدين، القوة، والفن. اعتبر أن الحقيقة مفهوم متغير وأن الإنسان الأعلى (Übermensch) هو هدف الإنسانية المتقدمة.</p>
     </div>
-
-    <!-- Quotes -->
     <div class="mt-8">
       <h3 class="text-xl border-b pb-2 mb-4">شذرات مختارة</h3>
       <ul class="list-disc space-y-2 pl-6 text-sm">
@@ -90,39 +62,19 @@
         <li>"لقد مات الله! ونحن قتلناه."</li>
       </ul>
     </div>
-
-    <!-- Books -->
     <div class="mt-8">
       <h3 class="text-xl border-b pb-2 mb-4">روابط كتبه</h3>
       <ul class="list-disc space-y-2 pl-6 text-sm">
-        <li><a href="#" class="hover:underline">هكذا تكلم زرادشت (PDF)</a></li>
-        <li><a href="#" class="hover:underline">ما وراء الخير والشر (PDF)</a></li>
-        <li><a href="#" class="hover:underline">إرادة القوة (PDF)</a></li>
+        <li><a href="#" class="text-[#c2a46e]">هكذا تكلم زرادشت (PDF)</a></li>
+        <li><a href="#" class="text-[#c2a46e]">ما وراء الخير والشر (PDF)</a></li>
+        <li><a href="#" class="text-[#c2a46e]">إرادة القوة (PDF)</a></li>
       </ul>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer
-    class="bg-[#f5f5dc] dark:bg-[#111] text-center p-4 mt-10 text-sm text-[#444] dark:text-gray-400"
-  >
-    &copy; 2025 anarchides – جميع الحقوق محفوظة
+  <footer class="bg-[#f5f5dc] text-center p-4 mt-10 text-sm text-[#444]">
+    &copy; 2025 Anarchides – جميع الحقوق محفوظة
   </footer>
-
-  <!-- Start of Tawk.to Script -->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement('script'),
-        s0 = document.getElementsByTagName('script')[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
-  <!-- End of Tawk.to Script -->
 </body>
 </html>
