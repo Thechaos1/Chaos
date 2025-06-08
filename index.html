@@ -1,93 +1,172 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عقل صوفيا</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anarchides - الصفحة الرئيسية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Amiri', serif; }
-    .fade-in-text {
-      animation: fadeIn 3s ease-in-out infinite alternate;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .menu-overlay {
-      background-color: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(6px);
-    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }body {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+}
+
+nav.active {
+  right: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin-top: 60px;
+}
+
+nav ul li {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.close-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+}
+
+.main {
+  padding-top: 80px;
+  text-align: center;
+}
+
+.quote {
+  font-size: 1.4rem;
+  margin: 40px 10px;
+  animation: fadeIn 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.philosophers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.philosopher {
+  text-align: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.philosopher:hover {
+  transform: scale(1.05);
+}
+
+.philosopher img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.philosopher h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .quote {
+    font-size: 1.1rem;
+  }
+}
+
   </style>
-</head>
-<body class="bg-[#fdfaf5] text-[#222]"><!-- Header --><header class="bg-white shadow p-4 flex justify-between items-center">
-  <h1 class="text-xl font-bold text-[#c2a46e]">عقل صوفيا</h1>
-  <button id="menu-btn" class="text-2xl text-[#222] focus:outline-none">☰</button>
-</header><!-- Side Menu --><div id="side-menu" class="fixed top-0 right-0 w-64 h-full z-50 hidden menu-overlay shadow-lg transition-transform duration-300">
-  <div class="flex justify-between items-center p-4 border-b">
-    <h2 class="text-lg font-semibold text-[#222]">القائمة</h2>
-    <button id="close-menu" class="text-2xl font-bold text-black">×</button>
+</head><body>
+  <header>
+    <div class="logo">Anarchides</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>  <nav id="nav">
+    <div class="close-btn" onclick="toggleMenu()">✕</div>
+    <ul>
+      <li onclick="goTo('index.html')">الرئيسية</li>
+      <li onclick="goTo('library.html')">المكتبة</li>
+      <li onclick="goTo('nietzsche.html')">نيتشه</li>
+      <li onclick="goTo('blood.html')">الدم</li>
+      <li onclick="goTo('privacy.html')">سياسة الخصوصية</li>
+    </ul>
+  </nav>  <div class="main">
+    <div class="quote">"من يتأمل طويلاً في الهاوية، ستتأمل فيه الهاوية أيضًا." - نيتشه</div><section class="philosophers">
+  <div class="philosopher" onclick="goTo('nietzsche.html')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche1882.jpg" alt="Nietzsche">
+    <h3>فريدريك نيتشه</h3>
   </div>
-  <ul class="p-4 space-y-4 text-sm">
-    <li><a href="index.html" class="text-[#222] hover:text-[#c2a46e]">الرئيسية</a></li>
-    <li><a href="library.html" class="text-[#222] hover:text-[#c2a46e]">المكتبة</a></li>
-    <li><a href="privacy.html" class="text-[#222] hover:text-[#c2a46e]">سياسة الخصوصية</a></li>
-    <li class="relative group">
-      <span class="text-[#222] cursor-pointer group-hover:text-[#c2a46e]">الفلاسفة</span>
-      <ul class="pl-4 mt-2 hidden group-hover:block">
-        <li><a href="nietzsche.html" class="text-[#444] hover:text-[#c2a46e]">نيتشه</a></li>
-        <!-- أضف المزيد من الفلاسفة هنا -->
-      </ul>
-    </li>
-    <li>
-      <button id="lang-toggle" class="text-[#444] hover:text-[#c2a46e]">تغيير اللغة</button>
-    </li>
-  </ul>
-</div><!-- Main Content --><main class="p-6 max-w-4xl mx-auto">
-  <section class="text-center py-10">
-    <h2 class="text-2xl font-bold mb-4">مرحبا بك في عقل صوفيا</h2>
-    <p id="quote" class="fade-in-text text-[#444] text-lg">"الفلسفة هي الحنين إلى الوطن الذي لا يُرى."</p>
-  </section>
-</main><!-- Footer --><footer class="bg-[#f5f5dc] text-center p-4 mt-10 text-sm text-[#444]">
-  &copy; 2025 عقل صوفيا – جميع الحقوق محفوظة
-</footer><!-- Menu Script --><script>
-  const menuBtn = document.getElementById('menu-btn');
-  const sideMenu = document.getElementById('side-menu');
-  const closeMenu = document.getElementById('close-menu');
+  <div class="philosopher" onclick="alert('قريبًا: صفحة سقراط')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Socrate_du_Louvre.jpg" alt="Socrates">
+    <h3>سقراط</h3>
+  </div>
+  <div class="philosopher" onclick="alert('قريبًا: صفحة أفلاطون')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Plato-raphael.jpg" alt="Plato">
+    <h3>أفلاطون</h3>
+  </div>
+</section>
 
-  menuBtn.onclick = () => {
-    sideMenu.classList.remove('hidden');
-  }
+  </div>  <script>
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
+    }
 
-  closeMenu.onclick = () => {
-    sideMenu.classList.add('hidden');
-  }
-
-  // اقتباسات متغيرة
-  const quotes = [
-    '"الفلسفة هي الحنين إلى الوطن الذي لا يُرى."',
-    '"من يفكر بعمق يحزن بعمق."',
-    '"الفكر العظيم يولد في العزلة."'
-  ];
-  let i = 0;
-  setInterval(() => {
-    i = (i + 1) % quotes.length;
-    document.getElementById('quote').textContent = quotes[i];
-  }, 5000);
-
-  // زر اللغة
-  document.getElementById('lang-toggle').onclick = () => {
-    alert('سيتم دعم تغيير اللغة لاحقاً.');
-  }
-</script><!--Start of Tawk.to Script--><script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/684577ecf127ba190c50be75/1it7losui';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script><!--End of Tawk.to Script--></body>
-</html>
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script></body></html>
